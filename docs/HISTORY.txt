@@ -4,6 +4,9 @@ Changelog
 1.0b2 (2009-02-04)
 ------------------
 
+- Declare dependency of our custom GS import step on the viewlets step.
+  [davisagli]
+
 - Separate the (globally-registered) template from the (locally-registered)
   viewlet, so that the former can be customized using
   portal_view_customizations.
