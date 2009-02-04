@@ -4,6 +4,9 @@ Changelog
 1.0b2 (2009-02-04)
 ------------------
 
+- Fix duplicate entries in quick installer.
+  [davisagli]
+
 - Handle non-structural folders correctly.
   [davisagli]
 

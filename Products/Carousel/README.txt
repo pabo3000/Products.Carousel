@@ -49,6 +49,7 @@ appear on the Add menu. Instead, there is a 'Configure banners' tab.  Clicking
 it while within a section that doesn't yet have a Carousel folder will result
 in the creation of a new one::
 
+  >>> browser.open('http://nohost/plone')
   >>> browser.getLink('Configure banners').click()
   >>> browser.url
   'http://nohost/plone/carousel'

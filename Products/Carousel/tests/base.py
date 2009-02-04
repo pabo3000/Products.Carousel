@@ -21,6 +21,8 @@ from Products.PloneTestCase.layer import onsetup
 # not in the Products.*) namespace. For that, see below.
 # All of Plone's products are already set up by PloneTestCase.
 
+ztc.installProduct('Carousel')
+
 @onsetup
 def setup_product():
     """Set up the package and its dependencies.
@@ -39,25 +41,12 @@ def setup_product():
     zcml.load_config('configure.zcml', Products.Carousel)
     fiveconfigure.debug_mode = False
 
-    # We need to tell the testing framework that these products
-    # should be available. This can't happen until after we have loaded
-    # the ZCML. Thus, we do it here. Note the use of installPackage()
-    # instead of installProduct().
-    # This is *only* necessary for packages outside the Products.*
-    # namespace which are also declared as Zope 2 products, using
-    # <five:registerPackage /> in ZCML.
-
-    # We may also need to load dependencies, e.g.:
-    #   ztc.installPackage('borg.localrole')
-
-    ztc.installPackage('Products.Carousel')
-
 # The order here is important: We first call the (deferred) function
 # which installs the products we need for this product. Then, we let
 # PloneTestCase set up this product on installation.
 
 setup_product()
-ptc.setupPloneSite(products=['Products.Carousel'])
+ptc.setupPloneSite(products=['Carousel'])
 
 class TestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If
