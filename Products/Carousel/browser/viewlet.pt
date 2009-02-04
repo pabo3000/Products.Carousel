@@ -20,14 +20,18 @@
       </tal:image_loop>
     </div>
     
-    <div id="carousel-titles">
+    <div id="carousel-buttons">
 
         <a tal:repeat="banner banners"
-           tal:content="banner/Title"
-           tal:attributes="class python:repeat['banner'].start and 'carousel-title selected' or 'carousel-title';
+           tal:attributes="class python:repeat['banner'].start and 'carousel-button selected' or 'carousel-button';
                            href banner/getRemoteUrl;
-                           id string:carousel-title-${repeat/banner/index};
-                           onclick string:jq('.carousel-banner:not(#carousel-banner-${repeat/banner/index})').fadeOut(300);;jq('#carousel-banner-${repeat/banner/index}').fadeIn(300);;jq('.carousel-title.selected').removeClass('selected');;jq(this).addClass('selected');;return false;;">[Title]</a>
+                           id string:carousel-button-${repeat/banner/index};
+                           onclick string:jq('.carousel-banner:not(#carousel-banner-${repeat/banner/index})').fadeOut(300);;jq('#carousel-banner-${repeat/banner/index}').fadeIn(300);;jq('.carousel-button.selected').removeClass('selected');;jq(this).addClass('selected');;return false;;">
+            <div class="carousel-title"
+                 tal:content="banner/Title"/>
+            <div class="carousel-description"
+                 tal:content="banner/Description"/>
+        </a>
 
     </div>
     

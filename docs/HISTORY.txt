@@ -4,6 +4,11 @@ Changelog
 1.0b2 (2009-02-04)
 ------------------
 
+- Added banner description to the template.  Changed the 'carousel-title'
+  class to 'carousel-button' so I could split out 'carousel-title' and
+  'carousel-description'.
+  [davisagli]
+
 - Fix duplicate entries in quick installer.
   [davisagli]
 
