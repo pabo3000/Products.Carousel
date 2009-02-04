@@ -23,6 +23,14 @@
     layer="Products.Carousel.interfaces.ICarouselBrowserLayer"
     />
 
+  <browser:page
+    for="*"
+    name="carousel"
+    template="view.pt"
+    layer="Products.Carousel.interfaces.ICarouselBrowserLayer"
+    permission="zope.Public"
+    />
+
   <!-- make security assertions for the viewlet, but don't actually register
        it for a particular manager, so that can be adjusted dynamically via
        local adapter registrations -->

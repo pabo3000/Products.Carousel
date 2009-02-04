@@ -4,6 +4,11 @@ Changelog
 1.0b2 (2009-02-04)
 ------------------
 
+- Separate the (globally-registered) template from the (locally-registered)
+  viewlet, so that the former can be customized using
+  portal_view_customizations.
+  [davisagli]
+
 - Added banner description to the template.  Changed the 'carousel-title'
   class to 'carousel-button' so I could split out 'carousel-title' and
   'carousel-description'.
