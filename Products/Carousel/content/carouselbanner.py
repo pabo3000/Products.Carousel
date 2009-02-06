@@ -54,6 +54,12 @@ class CarouselBanner(link.ATLink):
     
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
 
+    def tag(self, **kw):
+        return self.getField('image').tag(self, **kw)
+
+    def getSize(self, scale=None):
+        return self.getField('image').getSize(self, scale=scale)
+
     def __bobo_traverse__(self, REQUEST, name):
         """Transparent access to image scales
         """

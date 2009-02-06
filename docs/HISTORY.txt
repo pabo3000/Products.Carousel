@@ -4,6 +4,10 @@ Changelog
 1.0b3 (2009-02.05)
 ------------------
 
+- Apply proper security declarations to the getSize and tag methods of the
+  banner type so that the view works okay when customized TTW.
+  [davisagli]
+
 - Only display the carousel on default view; not any of the other tabs.
   [davisagli]
 

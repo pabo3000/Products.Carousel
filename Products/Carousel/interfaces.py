@@ -7,6 +7,13 @@ class ICarouselFolder(Interface):
     
 class ICarouselBanner(Interface):
     """A carousel banner which may include an image, text, and/or link."""
+    
+    def getSize(scale=None):
+        """ Wraps the getSize method of the image field.
+        """
+    
+    def tag(**kw):
+        """ Wraps the tag method of the image field."""
 
 class ICarouselBrowserLayer(Interface):
     """Marker applied to the request during traversal of sites that
