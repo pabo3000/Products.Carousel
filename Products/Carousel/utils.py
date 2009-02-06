@@ -27,9 +27,11 @@ def registerViewlet(manager):
 def unregisterViewlet():
     """Removes the local Carousel viewlet registration"""
     sm = getSiteManager()
-    for reg in sm.registeredAdapters():
+    # need to not have a generator, so that we can make modifications
+    regs = list(sm.registeredAdapters())
+    for reg in regs:
         if reg.factory is CarouselViewlet:
-            sm.unregisterAdapter(reg.required, reg.provided, reg.name)
+            sm.unregisterAdapter(CarouselViewlet, reg.required, reg.provided, reg.name)
 
 def addPermissionsForRole(context, role, wanted_permissions):
     """ Add permissions for a role in the context.

@@ -1,6 +1,16 @@
 Changelog
 =========
 
+1.0b3 (2009-02.05)
+------------------
+
+- Fix viewlet removal on uninstallation.
+  [davisagli]
+
+- Fix duplicate entries in quick installer.
+  [davisagli]
+
+
 1.0b2 (2009-02-04)
 ------------------
 
@@ -15,9 +25,6 @@ Changelog
 - Added banner description to the template.  Changed the 'carousel-title'
   class to 'carousel-button' so I could split out 'carousel-title' and
   'carousel-description'.
-  [davisagli]
-
-- Fix duplicate entries in quick installer.
   [davisagli]
 
 - Handle non-structural folders correctly.
