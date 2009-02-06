@@ -4,6 +4,9 @@ Changelog
 1.0b3 (2009-02.05)
 ------------------
 
+- Only display the carousel on default view; not any of the other tabs.
+  [davisagli]
+
 - Fix viewlet removal on uninstallation.
   [davisagli]
 

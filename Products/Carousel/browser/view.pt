@@ -1,8 +1,8 @@
 <div id="carousel"
      tal:define="context_state context/@@plone_context_state;
                  folder python:(context_state.is_folderish() and context_state.is_structural_folder()) and context or context_state.parent();
-                 banners python:[o.getObject() for o in here.portal_catalog(portal_type='Carousel Banner', path='/'.join(folder.getPhysicalPath()) + '/carousel', sort_on='getObjPositionInParent')]"
-     tal:condition="banners">
+                 banners python:[o.getObject() for o in here.portal_catalog(portal_type='Carousel Banner', path='/'.join(folder.getPhysicalPath()) + '/carousel', sort_on='getObjPositionInParent')];"
+     tal:condition="python:banners and context_state.is_view_template()">
 
     <div id="carousel-banners"
         tal:define="size python:banners[0].getField('image').getSize(banners[0]);
