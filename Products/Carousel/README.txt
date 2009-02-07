@@ -108,4 +108,37 @@ the banner we just added should be rendered (*before* the tabs)::
   <BLANKLINE>
   ...Pirates and Cowboys...
   ...class="contentViews"...
-  
+
+
+Adding banners in other scenarios
+---------------------------------
+
+Non-structural folder - put the carousel in the containing folder
+
+  >>> self.setRoles(['Manager'])
+  >>> self.portal.invokeFactory('Folder', 'nonstructural')
+  'nonstructural'
+  >>> from zope.interface import alsoProvides
+  >>> from Products.CMFPlone.interfaces import INonStructuralFolder
+  >>> alsoProvides(self.portal.nonstructural, INonStructuralFolder)
+  >>> browser.open('http://nohost/plone/nonstructural')
+  >>> browser.getLink('Configure banners').click()
+  >>> browser.url
+  'http://nohost/plone/carousel'
+
+Collection, not default item - put the carousel in the collection itself
+
+  >>> self.portal.invokeFactory('Topic', 'topic')
+  'topic'
+  >>> browser.open('http://nohost/plone/topic')
+  >>> browser.getLink('Configure banners').click()
+  >>> browser.url
+  'http://nohost/plone/topic/carousel'
+
+Collection, as default item -- put the carousel in the containing folder
+
+  >>> self.portal.default_page = 'topic'
+  >>> browser.open('http://nohost/plone/topic')
+  >>> browser.getLink('Configure banners').click()
+  >>> browser.url
+  'http://nohost/plone/carousel'
