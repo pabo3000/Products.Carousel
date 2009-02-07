@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.0b3 (2009-02.05)
+1.0b3 (2009-02-07)
 ------------------
+
+- Add 'Carousel Banner' to types not searched.
+  [davisagli]
 
 - Locate carousel folder correctly on containers used as default pages
   (e.g. a Topic)
