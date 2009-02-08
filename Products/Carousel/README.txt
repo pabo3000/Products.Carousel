@@ -33,6 +33,13 @@ Start up Zope and go to Site Setup, Add-on Products in your Plone site, and
 install the Carousel product.
 
 
+Using Carousel
+============
+
+`A detailed guide to using Carousel <http://plone.org/products/carousel/documentation>`
+is available.
+
+
 Detailed overview and tests
 ===========================
 
