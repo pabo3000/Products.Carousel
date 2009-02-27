@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0rc1 (unreleased)
+-------------------
+
+- Changed behavior of text links to swap banner on mouseover.
+  [davisagli]
+
+
 1.0b3 (2009-02-07)
 ------------------
 

@@ -26,7 +26,7 @@
            tal:attributes="class python:repeat['banner'].start and 'carousel-button selected' or 'carousel-button';
                            href banner/getRemoteUrl;
                            id string:carousel-button-${repeat/banner/index};
-                           onclick string:jq('.carousel-banner:not(#carousel-banner-${repeat/banner/index})').fadeOut(300);;jq('#carousel-banner-${repeat/banner/index}').fadeIn(300);;jq('.carousel-button.selected').removeClass('selected');;jq(this).addClass('selected');;return false;;">
+                           onmouseover string:jq('.carousel-banner:not(#carousel-banner-${repeat/banner/index})').fadeOut(300);;jq('#carousel-banner-${repeat/banner/index}').fadeIn(300);;jq('.carousel-button.selected').removeClass('selected');;jq(this).addClass('selected');;return false;;">
             <div class="carousel-title"
                  tal:content="banner/Title"/>
             <div class="carousel-description"
