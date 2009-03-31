@@ -36,7 +36,7 @@ setup(name='Products.Carousel',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         ],
       keywords='plone carousel slideshow banners rotating features',
       author='ONE/Northwest',
@@ -53,13 +53,4 @@ setup(name='Products.Carousel',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite = 'Products.Carousel.tests.test_docs.test_suite',
-      entry_points="""
-      # -*- entry_points -*- 
-      [distutils.setup_keywords]
-      paster_plugins = setuptools.dist:assert_string_list
-
-      [egg_info.writers]
-      paster_plugins.txt = setuptools.command.egg_info:write_arg
-      """,
-      paster_plugins = ["ZopeSkel"],
       )
