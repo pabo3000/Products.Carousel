@@ -34,9 +34,9 @@ install the Carousel product.
 
 
 Using Carousel
-============
+==============
 
-`A detailed guide to using Carousel <http://plone.org/products/carousel/documentation>`
+A `detailed guide to using Carousel <http://plone.org/products/carousel/documentation>`_
 is available.
 
 
