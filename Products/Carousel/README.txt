@@ -91,7 +91,7 @@ the add menu::
 
   >>> browser.getLink('Carousel Banner').click()
   >>> browser.url
-  'http://nohost/plone/carousel/portal_factory/Carousel Banner/carousel_banner.../edit'
+  'http://nohost/plone/carousel/portal_factory/Carousel...Banner/carousel_banner.../edit'
 
 We can set various things including a title, target URL, and image::
 
