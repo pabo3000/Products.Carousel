@@ -102,7 +102,9 @@ We can set various things including a title, target URL, and image::
   >>> browser.getControl('Save').click()
   >>> 'Changes saved.' in browser.contents
   True
-  
+
+We need to publish the new banner.
+  >>> browser.getLink('Publish').click()
 
 Viewing the banners
 -------------------

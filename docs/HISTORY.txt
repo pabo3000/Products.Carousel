@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.1 (unreleased)
+----------------
+
+- Only show published banners in the Carousel, even for users who have
+  permission to see others.
+  [davisagli]
+
 1.0 (2009-03-31)
 ----------------
 
