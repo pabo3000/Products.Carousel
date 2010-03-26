@@ -1,7 +1,15 @@
 from zope.component import getUtility
 from plone.app.viewletmanager.interfaces import IViewletSettingsStorage
-from plone.app.layout.viewlets.interfaces import IContentViews
+from plone.app.layout.viewlets.interfaces import IAboveContent, IContentViews
 from Products.Carousel.utils import hasViewlet, registerViewlet
+from Products.Carousel import HAS_PLONE4
+
+if HAS_PLONE4:
+    default_viewlet_manager = IAboveContent
+    default_viewlet_manager_name = 'plone.abovecontent'
+else:
+    default_viewlet_manager = IContentViews
+    default_viewlet_manager_name = 'plone.contentviews'
 
 def configureViewlet(gscontext):
     """ Add the Carousel viewlet to the plone.contentviews viewlet manager
@@ -12,12 +20,12 @@ def configureViewlet(gscontext):
         return
     
     if not hasViewlet():
-        registerViewlet(IContentViews)
+        registerViewlet(default_viewlet_manager)
         
         # make sure it's first in the content views manager
         storage = getUtility(IViewletSettingsStorage)
         skins = getattr(storage, '_order')
         for skinname in skins:
-            values = list(skins[skinname].get('plone.contentviews', []))
+            values = list(skins[skinname].get(default_viewlet_manager_name, []))
             values.insert(0, 'Products.Carousel.viewlet')
-            storage.setOrder('plone.contentviews', skinname, tuple(values))
+            storage.setOrder(default_viewlet_manager, skinname, tuple(values))

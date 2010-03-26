@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.1dev'
+version = '1.1'
 
 long_description = (
     read('Products', 'Carousel', 'README.txt')
@@ -16,12 +16,12 @@ long_description = (
     'Change history\n'
     '**************\n'
     + '\n' +
-    read('docs', 'HISTORY.txt')
+    read('CHANGES.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
     + '\n' +
-    read('docs', 'CONTRIBUTORS.txt')
+    read('CONTRIBUTORS.txt')
     )
 
 tests_require=['zope.testing']
@@ -39,8 +39,8 @@ setup(name='Products.Carousel',
         'Development Status :: 5 - Production/Stable',
         ],
       keywords='plone carousel slideshow banners rotating features',
-      author='ONE/Northwest',
-      author_email='davidglick@onenw.org',
+      author='Groundwire',
+      author_email='davidglick@groundwire.org',
       url='http://svn.plone.org/svn/collective/Products.Carousel',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),

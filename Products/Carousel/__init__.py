@@ -6,7 +6,6 @@ from Products.Carousel import config
 
 from Products.Archetypes import atapi
 from Products.CMFCore.utils import ContentInit
-from Products.CMFCore.permissions import setDefaultRoles
 
 # Define a message factory for when this product is internationalised.
 # This will be imported with the special name "_" in most modules. Strings
@@ -16,6 +15,12 @@ CarouselMessageFactory = MessageFactory('Products.Carousel')
 
 # import banner content type so AT knows about it
 from Products.Carousel.content import carouselbanner
+
+try:
+    from plone.app.upgrade import v40
+    HAS_PLONE4 = True
+except ImportError:
+    HAS_PLONE4 = False
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product.

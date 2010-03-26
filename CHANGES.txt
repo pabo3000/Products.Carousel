@@ -1,8 +1,15 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2010-03-26)
 ----------------
+
+- In Plone 4, add viewlet to the abovecontent viewlet manager by default, to
+  avoid weird styles.
+  [davisagli]
+
+- Added Spanish translation.
+  [tzicatl]
 
 - Only show published banners in the Carousel, even for users who have
   permission to see others.
