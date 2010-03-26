@@ -28,4 +28,4 @@ def configureViewlet(gscontext):
         for skinname in skins:
             values = list(skins[skinname].get(default_viewlet_manager_name, []))
             values.insert(0, 'Products.Carousel.viewlet')
-            storage.setOrder(default_viewlet_manager, skinname, tuple(values))
+            storage.setOrder(default_viewlet_manager_name, skinname, tuple(values))
