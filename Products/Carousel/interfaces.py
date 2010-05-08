@@ -18,4 +18,6 @@ class ICarouselBanner(Interface):
 class ICarouselBrowserLayer(Interface):
     """Marker applied to the request during traversal of sites that
        have Carousel installed
+       
+       Not used anymore, but here for BBB.
     """

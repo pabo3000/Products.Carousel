@@ -4,6 +4,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
+- Remove the browser layer to help with use in Plone 2.5.
+  [davisagli]
 
 1.1 (2010-03-26)
 ----------------
