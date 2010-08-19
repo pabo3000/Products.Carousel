@@ -12,6 +12,18 @@
   <include package=".browser" />
   <include package=".content" />
   
+  <utility
+    component=".vocabularies.getBannerTemplates"
+    name="Products.Carousel.BannerTemplates"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    />
+    
+  <utility
+    component=".vocabularies.getPagerTemplates"
+    name="Products.Carousel.PagerTemplates"
+    provides="zope.schema.interfaces.IVocabularyFactory"
+    />
+  
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"

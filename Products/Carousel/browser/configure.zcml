@@ -2,12 +2,41 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="Products.Carousel">
-
+    
+  <browser:menu
+    id="carousel_bannertemplates"
+    title="Carousel Banner Templates"
+    />
+    
+  <browser:menu
+    id="carousel_pagertemplates"
+    title="Carousel Pager Templates"
+    />
+    
+  <adapter factory=".folder.Carousel" />
+  <adapter factory=".folder.CarouselSettingsFactory" />
+    
   <browser:page
     for="Products.CMFCore.interfaces.IFolderish"
     name="edit-carousel"
-    class=".manager.CarouselFolderManager"
+    class=".manager.CarouselManager"
     permission="cmf.ManagePortal"
+    />
+    
+  <browser:page
+    for="Products.Carousel.interfaces.ICarouselFolder"
+    name="edit-carousel"
+    class=".folder.CarouselSettingsView"
+    permission="cmf.ManagePortal"
+    />
+    
+  <browser:viewlet
+    name="plone.contentactions"
+    for="Products.Carousel.interfaces.ICarouselFolder"
+    view="..interfaces.ICarouselSettingsView"
+    manager="plone.app.layout.viewlets.interfaces.IContentViews"
+    class="plone.app.layout.viewlets.common.ContentActionsViewlet"
+    permission="zope2.View"
     />
 
   <browser:resource
