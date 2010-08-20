@@ -31,6 +31,13 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
             label= _(u'Image'),
             show_content_type = False)
         ),
+        
+    atapi.TextField('text',
+        required=False,
+        widget=atapi.RichWidget(
+            label=_(u'Body'),
+        ),
+    ),
 
 ))
 
@@ -39,6 +46,10 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
 
 CarouselBannerSchema['title'].storage = atapi.AnnotationStorage()
 CarouselBannerSchema['description'].storage = atapi.AnnotationStorage()
+CarouselBannerSchema['description'].widget.visible = {
+    'view': 'hidden', 
+    'edit': 'hidden'
+}
 
 schemata.finalizeATCTSchema(CarouselBannerSchema, moveDiscussion=False)
 
