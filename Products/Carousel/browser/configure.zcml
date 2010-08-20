@@ -48,11 +48,22 @@
     name="carousel.css"
     file="carousel.css"
     />
-
+    
   <browser:page
-    for="*"
-    name="carousel"
-    template="view.pt"
+    for="..interfaces.ICarousel"
+    name="banner-default"
+    template="templates/banner-default.pt"
+    menu="carousel_bannertemplates"
+    title="Default"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
+    name="pager-numbers"
+    template="templates/pager-numbers.pt"
+    menu="carousel_pagertemplates"
+    title="Numbers"
     permission="zope.Public"
     />
 

@@ -8,5 +8,7 @@ ADD_PERMISSIONS = {
     'Carousel Banner': 'Carousel: Add Carousel Banner',
 }
 
+CAROUSEL_ID = 'carousel'
+
 from Products.CMFCore.permissions import setDefaultRoles
 setDefaultRoles(ADD_PERMISSIONS['Carousel Banner'], ('Manager',))

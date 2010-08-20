@@ -9,16 +9,6 @@ class ICarousel(Interface):
     A rotating display of banners.
     """
 
-    def hasCarousel():
-        """
-        Returns True if the context has a Carousel.
-        """
-        
-    def addCarousel():
-        """
-        Adds a Carousel to this context.
-        """
-        
     def getSettings():
         """
         Returns an object that provides ICarouselSettings.

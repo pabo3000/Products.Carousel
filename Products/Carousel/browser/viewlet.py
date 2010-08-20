@@ -1,14 +1,81 @@
-from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
+from Acquisition import aq_base
+from zope.component import queryMultiAdapter
+from zope.interface import Interface
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
+from Products.Carousel.config import CAROUSEL_ID
+from Products.Carousel.interfaces import ICarousel
 
 class CarouselViewlet(ViewletBase):
     __name__ = 'Products.Carousel.viewlet'
     
-    def index(self):
+    index = ViewPageTemplateFile('viewlet.pt')
+    
+    def _template_for_carousel(self, name, carousel):
         """
-        Look up Carousel view separately from the viewlet, so the template
-        can be customized via portal_view_customizations (which only knows
-        about global templates), but we can still use a local registration
-        for the viewlet.
+        Returns a template for rendering the banners or pager.
         """
-        return self.context.restrictedTraverse('@@carousel')()
+        
+        tempate = queryMultiAdapter(
+            (carousel, self.request),
+            Interface,
+            default=None,
+            name=name.replace('@@', '')
+        )
+        
+        if tempate:
+            return tempate.__of__(carousel)
+        return None
+    
+    def update(self):
+        """
+        Set the variables needed by the template.
+        """
+        
+        self.available = False
+        
+        context_state = self.context.restrictedTraverse('@@plone_context_state')
+        if context_state.is_structural_folder() and not context_state.is_default_page():
+            folder = self.context
+        else:
+            folder = context_state.parent()
+                
+        if hasattr(aq_base(folder), CAROUSEL_ID):
+            carousel = ICarousel(folder[CAROUSEL_ID])
+        else:
+            return
+        
+        settings = carousel.getSettings()
+        
+        if not settings.enabled:
+            return
+            
+        if settings.default_page_only and not context_state.is_default_page():
+            return
+            
+        banners = carousel.getBanners()
+        if not banners:
+            return
+
+        self.banners = self._template_for_carousel(
+            settings.banner_template or u'@@banner-default',
+            carousel
+        )
+        
+        self.pager = self._template_for_carousel(
+            settings.pager_template or u'@@pager-numbers',
+            carousel
+        )
+        
+        width, height = banners[0].getSize()
+        if settings.height or height:
+            self.height = '%ipx' % (settings.height or height)
+        else:
+            self.height = 'auto'
+            
+        if settings.width or width:
+            self.width = '%ipx' % (settings.width or width)
+        else:
+            self.width = 'auto'
+            
+        self.available = True

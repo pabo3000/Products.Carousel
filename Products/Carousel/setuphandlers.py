@@ -18,7 +18,7 @@ def configureViewlet(gscontext):
     if gscontext.readDataFile('carousel_various.txt') is None:
         # don't run this step for other profiles
         return
-    
+
     if not hasViewlet():
         registerViewlet(default_viewlet_manager)
         

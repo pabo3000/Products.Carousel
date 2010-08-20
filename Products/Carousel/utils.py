@@ -2,9 +2,8 @@ import types
 from AccessControl.Permission import Permission
 from zope.interface import Interface
 from zope.component import getSiteManager
-from zope.publisher.interfaces.browser import IBrowserView
+from zope.publisher.interfaces.browser import IBrowserView, IDefaultBrowserLayer
 from zope.viewlet.interfaces import IViewlet
-from Products.Carousel.interfaces import ICarouselBrowserLayer
 from Products.Carousel.browser.viewlet import CarouselViewlet
 
 def hasViewlet():
@@ -19,7 +18,7 @@ def registerViewlet(manager):
     sm = getSiteManager()
     sm.registerAdapter(
         CarouselViewlet,
-        required = (Interface, ICarouselBrowserLayer, IBrowserView, manager),
+        required = (Interface, IDefaultBrowserLayer, IBrowserView, manager),
         provided = IViewlet,
         name = u'Products.Carousel.viewlet'
         )

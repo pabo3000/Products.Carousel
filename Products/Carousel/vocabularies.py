@@ -1,7 +1,11 @@
+from zope.interface import implements
 from zope.app.publisher.interfaces.browser import IBrowserMenu
 from zope.component import getUtility
 from zope.schema.vocabulary import SimpleVocabulary
 from Products.Carousel.interfaces import ICarousel
+
+class DummyCarouselFolder(object):
+    implements(ICarousel)
 
 def getContext(context):
     """
@@ -16,11 +20,11 @@ def getContext(context):
 def getBannerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_bannertemplates')
-    items = menu.getMenuItems(ICarousel(context), context.REQUEST)
+    items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
     return SimpleVocabulary.fromItems([(i['title'], i['action']) for i in items])
     
 def getPagerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_pagertemplates')
-    items = menu.getMenuItems(ICarousel(context), context.REQUEST)
+    items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
     return SimpleVocabulary.fromItems([(i['title'], i['action']) for i in items])

@@ -1,78 +1,22 @@
-from Acquisition import aq_base, aq_parent
 from persistent import Persistent
 from zope.annotation import factory
 from zope.component import adapts
-from zope.interface import implements, alsoProvides
+from zope.interface import implements
 from z3c.form import form, field
 from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget, \
     CheckBoxFieldWidget
 from plone.app.z3cform.layout import FormWrapper
-from plone.memoize import instance
 from Products.CMFCore.interfaces import IFolderish
-from Products.CMFCore.utils import getToolByName
+from Products.ATContentTypes.interfaces.topic import IATTopic
 from Products.Carousel.interfaces import ICarousel, ICarouselSettings, \
-    ICarouselFolder, ICarouselBanner, ICarouselSettingsView
-from Products.Carousel.utils import addPermissionsForRole
-
-CAROUSEL_ID = 'carousel'
+    ICarouselFolder, ICarouselSettingsView, ICarouselBanner
 
 class Carousel(object):
     implements(ICarousel)
-    adapts(IFolderish)
+    adapts(ICarouselFolder)
     
     def __init__(self, context):
         self.context = context
-        
-    @instance.memoize
-    def _carousel_folder(self):
-        """
-        Returns the Carousel folder or None if there isn't one.
-        """
-        
-        if hasattr(aq_base(self.context), CAROUSEL_ID):
-            return getattr(self.context, CAROUSEL_ID)
-        return None
-    
-    def hasCarousel(self):
-        """
-        Returns True if the context has a Carousel.
-        """
-        
-        return self._carousel_folder() is not None
-        
-    def addCarousel(self):
-        """
-        Adds a Carousel to this context.
-        """
-        
-        pt = getToolByName(self.context, 'portal_types')
-        newid = pt.constructContent('Folder', self.context, 'carousel',
-            title='Carousel Banners', excludeFromNav=True)
-        carousel = getattr(self.context, newid)
-        
-        # mark the new folder as a Carousel folder
-        alsoProvides(carousel, ICarouselFolder)
-        
-        # make sure Carousel banners are addable within the new folder
-        addPermissionsForRole(carousel, 'Manager', ('Carousel: Add Carousel Banner',))
-        
-        # make sure *only* Carousel banners are addable
-        carousel.setConstrainTypesMode(1)
-        carousel.setLocallyAllowedTypes(['Carousel Banner'])
-        carousel.setImmediatelyAddableTypes(['Carousel Banner'])
-        
-        self.context.REQUEST.RESPONSE.redirect(
-            carousel.absolute_url() + '/@@edit-carousel'
-        )
-        
-    def editCarousel(self):
-        """
-        Edit the Carousel.
-        """
-                
-        self.context.REQUEST.RESPONSE.redirect(
-            self._carousel_folder().absolute_url() + '/@@edit-carousel'
-        )
         
     def getSettings(self):
         """
@@ -86,9 +30,14 @@ class Carousel(object):
         Returns a list of objects that provide ICarouselBanner.
         """
         
-        for banner in self.objectValues():
-            if ICarouselBanner.providedBy(banner):
-                yield banner
+        banner_objects = []
+        if IFolderish.providedBy(self.context):
+            banner_objects = self.context.objectValues()
+        elif IATTopic.providedBy(self.context):
+            banner_objects = [brain.getObject() for brain \
+                in self.context.queryCatalog()]
+        
+        return [b for b in banner_objects if ICarouselBanner.providedBy(b)]
 
 class CarouselSettings(Persistent):
     """
@@ -96,15 +45,15 @@ class CarouselSettings(Persistent):
     """
     
     implements(ICarouselSettings)
-    adapts(IFolderish)
+    adapts(ICarouselFolder)
     
     def __init__(self):
         self.enabled = True
-        self.banner_template = None
+        self.banner_template = u'@@banner-default'
         self.banner_elements = [u'title', u'text', u'image']
         self.width = None
         self.height = None
-        self.pager_template = None
+        self.pager_template = u'@@pager-numbers'
         self.transition_type = u'cross-fade'
         self.transition_speed = 0.5
         self.transition_delay = 8.0
@@ -123,7 +72,7 @@ class CarouselSettingsForm(form.EditForm):
     fields['default_page_only'].widgetFactory = SingleCheckBoxFieldWidget
     
     def getContent(self):
-        return ICarousel(aq_parent(self.context)).getSettings()
+        return ICarouselSettings(self.context)
         
 class CarouselSettingsView(FormWrapper):
     """
