@@ -2,7 +2,7 @@
     tal:define="banners context/getBanners;
         settings context/getSettings;">
     <tal:number tal:repeat="banner banners">
-        <a tal:attributes="class string:carousel-number carousel-number-${repeat/banner/number}"
+        <a tal:attributes="class string:carousel-pager-item carousel-pager-item-${repeat/banner/number}"
             tal:content="repeat/banner/number"
             href="#"
             class="carousel-number">

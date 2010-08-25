@@ -1,12 +1,14 @@
+.carousel {
+    position: relative;
+}
 .carousel-banner {
     display: none;
     overflow: hidden;
 }
-
 .carousel-pager {
-    display: none;
+    position: absolute;
+    bottom: 0;
 }
-
 .carousel-banner-1 {
     display: block;
 }
