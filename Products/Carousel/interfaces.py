@@ -70,11 +70,10 @@ class ICarouselSettings(Interface):
     transition_type = schema.Choice(
         title=_(u'Transition'),
         vocabulary=SimpleVocabulary.fromItems((
-            (u'Cross Fade', u'cross-fade'),
-            (u'Slide Left', u'slide-left'),
-            (u'Slide Right', u'slide-right'),
+            (u'Cross Fade', u'fade'),
+            (u'Slide', u'slide'),
         )),
-        default=u'cross-fade',
+        default=u'fade',
     )
     
     transition_speed = schema.Float(

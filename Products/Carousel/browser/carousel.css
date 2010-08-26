@@ -1,13 +1,18 @@
 .carousel {
     position: relative;
+    margin-bottom: 1em;
 }
 .carousel-banner {
     display: none;
     overflow: hidden;
 }
-.carousel-pager {
-    position: absolute;
+.carousel-text {
+    background-color: #DDDDDD;
     bottom: 0;
+    left: 0;
+    padding: 3%;
+    position: absolute;
+    width: 94%;
 }
 .carousel-banner-1 {
     display: block;

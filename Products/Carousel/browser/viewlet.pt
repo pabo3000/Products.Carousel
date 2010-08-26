@@ -14,7 +14,10 @@
         (function ($$) {
             $$('.carousel').ploneCarousel({
                 height: ${view/height},
-                width: ${view/width}
+                width: ${view/width},
+                transition: '${view/transition}',
+                speed: ${view/speed},
+                delay: ${view/delay}
             });
         })(jQuery);
     ">

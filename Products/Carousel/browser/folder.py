@@ -54,7 +54,7 @@ class CarouselSettings(Persistent):
         self.width = None
         self.height = None
         self.pager_template = u'@@pager-numbers'
-        self.transition_type = u'cross-fade'
+        self.transition_type = u'fade'
         self.transition_speed = 0.5
         self.transition_delay = 8.0
         self.default_page_only = True
