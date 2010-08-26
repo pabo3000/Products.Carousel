@@ -10,6 +10,7 @@ from Products.CMFCore.interfaces import IFolderish
 from Products.ATContentTypes.interfaces.topic import IATTopic
 from Products.Carousel.interfaces import ICarousel, ICarouselSettings, \
     ICarouselFolder, ICarouselSettingsView, ICarouselBanner
+from Products.Carousel import CarouselMessageFactory as _
 
 class Carousel(object):
     implements(ICarousel)
@@ -73,6 +74,8 @@ class CarouselSettingsForm(form.EditForm):
     
     def getContent(self):
         return ICarouselSettings(self.context)
+        
+CarouselSettingsForm.buttons['apply'].title = _(u'Save')
         
 class CarouselSettingsView(FormWrapper):
     """
