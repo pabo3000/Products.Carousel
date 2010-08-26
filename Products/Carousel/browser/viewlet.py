@@ -1,3 +1,4 @@
+from time import time
 from Acquisition import aq_base
 from zope.component import queryMultiAdapter
 from zope.interface import Interface
@@ -73,4 +74,5 @@ class CarouselViewlet(ViewletBase):
         self.transition = settings.transition_type
         self.speed = int(settings.transition_speed * 1000)
         self.delay = int(settings.transition_delay * 1000)
+        self.element_id = 'carousel-%s' % hash(time())
         self.available = True
