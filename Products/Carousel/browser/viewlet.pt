@@ -13,8 +13,8 @@
     <script type="text/javascript" charset="utf-8" tal:content="string:
         (function ($$) {
             $$('.carousel').ploneCarousel({
-                height: '${view/height}',
-                width: '${view/width}'
+                height: ${view/height},
+                width: ${view/width}
             });
         })(jQuery);
     ">

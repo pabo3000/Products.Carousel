@@ -51,10 +51,33 @@
     
   <browser:page
     for="..interfaces.ICarousel"
+    name="banner-base"
+    template="templates/banner-base.pt"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
+    name="pager-base"
+    template="templates/pager-base.pt"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
     name="banner-default"
     template="templates/banner-default.pt"
     menu="carousel_bannertemplates"
     title="Default"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
+    name="pager-none"
+    template="templates/pager-none.pt"
+    menu="carousel_pagertemplates"
+    title="None"
     permission="zope.Public"
     />
     
@@ -66,6 +89,25 @@
     title="Numbers"
     permission="zope.Public"
     />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
+    name="pager-titles"
+    template="templates/pager-titles.pt"
+    menu="carousel_pagertemplates"
+    title="Titles"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
+    name="pager-prevnext"
+    template="templates/pager-prevnext.pt"
+    menu="carousel_pagertemplates"
+    title="Previous and Next Buttons"
+    permission="zope.Public"
+    />
+
 
   <!-- make security assertions for the viewlet, but don't actually register
        it for a particular manager, so that can be adjusted dynamically via
