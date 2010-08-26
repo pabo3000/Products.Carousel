@@ -6,7 +6,8 @@
             class="carousel-image">
             <img tal:replace="structure python:banner.tag()"/>
         </a>
-        <div tal:condition="python:'title' in elements or 'text' in elements"
+        <div tal:define="text banner/getText|nothing;" 
+            tal:condition="python:'title' in elements or ('text' in elements and text)"
             class="carousel-text">
             <a tal:condition="python:'title' in elements"
                 tal:attributes="href banner/getRemoteUrl;"
@@ -14,8 +15,7 @@
                 class="carousel-title">
                 Banner title
             </a>
-            <div tal:define="text banner/getText;" 
-                tal:condition="python:text and 'text' in elements"
+            <div tal:condition="python:text and 'text' in elements"
                 tal:content="structure text">
                 Body text
             </div>

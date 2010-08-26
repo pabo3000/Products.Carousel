@@ -1,7 +1,8 @@
 (function ($) {
   function PloneCarousel(container, opts) {
     var carousel = this;
-    this.container = $(container).find('.carousel-banners');
+    this.parent_container = $(container);
+    this.container = this.parent_container.find('.carousel-banners');
     this.banners = this.container.find('.carousel-banner');
     this.current_index = 0;
     this.max_index = this.banners.length - 1;
@@ -16,6 +17,10 @@
     this.banners.css({
       position: 'absolute'
     });
+    
+    this.triggerEvent = function (name) {
+      this.parent_container.triggerHandler(name, [this]);
+    };
     
     this.shiftIndex = function (offset, old_index) {
       old_index = (old_index == undefined) ? this.current_index : old_index;
@@ -45,12 +50,14 @@
       carousel.timer = setInterval(function () {
         carousel.nextBanner();
       }, carousel.opts.delay);
+      this.triggerEvent('play');
     };
     
     this.pause = function () {
       if (carousel.timer) {
         clearInterval(carousel.timer);
       }
+      this.triggerEvent('pause');
     };
   };
   
@@ -60,6 +67,7 @@
   
     this.animateTo = function (index) {
       if (index == this.current_index || this.animating) return;
+      this.triggerEvent('beforeAnimate');
       this.animating = true;
       this.banners.not(':eq(' + index.toString() + ')').fadeOut(this.opts.speed, function () {
         carousel.current_index = index;
@@ -67,6 +75,7 @@
       this.banners.eq(index).fadeIn(this.opts.speed, function () {
         carousel.current_index = index;
         carousel.animating = false;
+        carousel.triggerEvent('afterAnimate');
       });
     };
   };
@@ -94,6 +103,7 @@
     this.animateTo = function (index, direction) {
       if (index == this.current_index || this.animating) return;
       this.animating = true;
+      this.triggerEvent('beforeAnimate');
             
       // Set the direction of animation if it isn't set explicitly.
       direction = (direction == undefined) ? 'left' : direction;
@@ -119,6 +129,7 @@
       }, this.opts.speed, 'swing', function () {
         carousel.current_index = index;
         carousel.animating = false;
+        carousel.triggerEvent('afterAnimate');
       });
     };
   };
@@ -134,10 +145,11 @@
       }
       carousel.play();
       container.hover(carousel.pause, carousel.play);
+      carousel.banners.eq(0).addClass('carousel-banner-active');
       
       // Set up the pager.
       var pager_items = container.find('.carousel-pager-item');
-      pager_items.filter(':first').addClass('carousel-pager-item-first');
+      pager_items.filter(':first').addClass('carousel-pager-item-first carousel-pager-item-active');
       pager_items.filter(':last').addClass('carousel-pager-item-last');
       pager_items.click(function () {
         carousel.animateTo(pager_items.index($(this)));
@@ -152,6 +164,15 @@
       container.find('.carousel-pager-button-next').click(function () {
         carousel.nextBanner();
         return false;
+      });
+      
+      // Set up event handlers.
+      container.bind('afterAnimate', function (e, carousel) {
+        var current_index = carousel.current_index;
+        carousel.banners.removeClass('carousel-banner-active')
+          .eq(current_index).addClass('carousel-banner-active');
+        pager_items.removeClass('carousel-pager-item-active')
+          .eq(current_index).addClass('carousel-pager-item-active');
       });
       
     });
