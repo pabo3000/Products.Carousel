@@ -16,9 +16,13 @@
                 Banner title
             </a>
             <div tal:condition="python:text and 'text' in elements"
-                tal:content="structure text">
+                tal:content="structure text"
+                class="carousel-body">
                 Body text
             </div>
         </div>
+        <a tal:attributes="href banner/getRemoteUrl;"
+            class="carousel-structural-link">
+        </a>
     </metal:banner>
 </metal:banners>
