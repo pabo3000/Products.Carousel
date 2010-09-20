@@ -16,15 +16,28 @@ def getContext(context):
     if not hasattr(context, 'REQUEST') and hasattr(context, '__parent__'):
         return context.__parent__
     return context
+    
+def uniqueMenuItems(items):
+    """
+    Returns a list of tuples in the form (title, action) where both title
+    and action are unique.
+    """
+    
+    results = {}
+    for item in items:
+        if not item['title'] in results.keys() \
+            and not item['action'] in results.values():
+            results[item['title']] = item['action']
+    return results.items()
 
 def getBannerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_bannertemplates')
     items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
-    return SimpleVocabulary.fromItems([(i['title'], i['action']) for i in items])
+    return SimpleVocabulary.fromItems(uniqueMenuItems(items))
     
 def getPagerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_pagertemplates')
     items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
-    return SimpleVocabulary.fromItems([(i['title'], i['action']) for i in items])
+    return SimpleVocabulary.fromItems(uniqueMenuItems(items))
