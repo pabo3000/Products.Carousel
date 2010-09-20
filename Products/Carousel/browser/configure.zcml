@@ -83,6 +83,15 @@
     
   <browser:page
     for="..interfaces.ICarousel"
+    name="pager-classic"
+    template="templates/pager-classic.pt"
+    menu="carousel_pagertemplates"
+    title="Classic (Title and Text)"
+    permission="zope.Public"
+    />
+    
+  <browser:page
+    for="..interfaces.ICarousel"
     name="pager-numbers"
     template="templates/pager-numbers.pt"
     menu="carousel_pagertemplates"

@@ -17,3 +17,6 @@
 .carousel-banner-1 {
     display: block;
 }
+.carousel-pager-item-classic {
+    cursor: pointer;
+}
