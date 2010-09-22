@@ -26,19 +26,21 @@ class ICarouselSettings(Interface):
     
     enabled = schema.Bool(
         title=_(u'Enabled'),
-        description=_(u'This Carousel should be displayed.'),
+        description=_(u'Uncheck this box to hide the Carousel temporarily.'),
         default=True,
     )
     
     banner_template = schema.Choice(
-        title=_(u'Banner Template'),
+        title=_(u'Banner Type'),
+        description=_(u'The banner is the part of the Carousel that rotates.'
+            ' Choose Default for the standard Carousel banner.'),
         vocabulary='Products.Carousel.BannerTemplates',
     )
     
     banner_elements = schema.List(
         title=_('Banner Elements'),
         description=_(u'Select the elements that should be visible on the' 
-            u' banner. Note that not all templates may provide all elements.'),
+            u' banner. Note that custom banner types may not provide all elements.'),
         value_type=schema.Choice(
             vocabulary=SimpleVocabulary.fromItems((
                 (u'Title', u'title'), 
@@ -52,18 +54,22 @@ class ICarouselSettings(Interface):
     
     width = schema.Int(
         title=_(u'Banner Width'),
-        description=_(u'Enter the width of the banner in pixels.'),
+        description=_(u'Enter the width of the banner in pixels. If you leave'
+        ' this field blank, Carousel will use the width of the first banner.'),
         required=False,
     )
     
     height = schema.Int(
         title=_(u'Banner Height'),
-        description=_(u'Enter the height of the banner in pixels.'),
+        description=_(u'Enter the height of the banner in pixels. If you leave'
+        ' this field blank, Carousel will use the height of the first banner.'),
         required=False,
     )
     
     pager_template = schema.Choice(
-        title=_(u'Pager Template'),
+        title=_(u'Pager Type'),
+        description=_(u'The pager allows user to navigate between banners.'
+        ' Choose the type of pager to display, or select None for no pager.'),
         vocabulary='Products.Carousel.PagerTemplates',
     )
     
@@ -85,7 +91,8 @@ class ICarouselSettings(Interface):
     
     transition_delay = schema.Float(
         title=_(u'Transition Delay'),
-        description=_(u'Enter the delay between transitions in seconds.'),
+        description=_(u'Enter the number of seconds that Carousel should pause'
+            ' between banners.'),
         default=8.0,
         min=0.0,
     )

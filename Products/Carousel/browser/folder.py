@@ -2,7 +2,7 @@ from persistent import Persistent
 from zope.annotation import factory
 from zope.component import adapts
 from zope.interface import implements
-from z3c.form import form, field
+from z3c.form import form, field, group
 from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget, \
     CheckBoxFieldWidget
 from plone.app.z3cform.layout import FormWrapper
@@ -62,15 +62,48 @@ class CarouselSettings(Persistent):
         
 CarouselSettingsFactory = factory(CarouselSettings)
 
-class CarouselSettingsForm(form.EditForm):
+class AppearanceGroup(group.Group):
+    """
+    Appearance options.
+    """
+
+    label = _(u'Appearance')
+    fields = field.Fields(ICarouselSettings).select(
+        'banner_template', 'banner_elements', 'width', 'height',
+        'pager_template')
+    fields['banner_elements'].widgetFactory = CheckBoxFieldWidget
+
+class TransitionGroup(group.Group):
+    """
+    Transition options.
+    """
+
+    label = _(u'Transition')
+    fields = field.Fields(ICarouselSettings).select(
+        'transition_type', 'transition_speed', 'transition_delay')
+
+class DisplayGroup(group.Group):
+    """
+    Display options.
+    """
+
+    label = _(u'Display')
+    fields = field.Fields(ICarouselSettings).select(
+        'enabled', 'default_page_only')
+    fields['enabled'].widgetFactory = SingleCheckBoxFieldWidget
+    fields['default_page_only'].widgetFactory = SingleCheckBoxFieldWidget
+
+class CarouselSettingsForm(group.GroupForm, form.EditForm):
     """
     Form for editing Carousel settings.
     """
-
-    fields = field.Fields(ICarouselSettings)
-    fields['enabled'].widgetFactory = SingleCheckBoxFieldWidget
-    fields['banner_elements'].widgetFactory = CheckBoxFieldWidget
-    fields['default_page_only'].widgetFactory = SingleCheckBoxFieldWidget
+    
+    label = _(u'Carousel Settings')
+    description = _(u'Carousel allows you to create a rotating display of' 
+        ' banners that contain images and text. To add a banner, use the'
+        ' Add New menu above. To modify existing banners, click the'
+        ' Contents tab.')
+    groups = (AppearanceGroup, TransitionGroup, DisplayGroup,)
     
     def getContent(self):
         return ICarouselSettings(self.context)
@@ -84,5 +117,4 @@ class CarouselSettingsView(FormWrapper):
     
     implements(ICarouselSettingsView)
 
-    form = CarouselSettingsForm
-    
+    form = CarouselSettingsForm    

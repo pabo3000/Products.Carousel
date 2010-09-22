@@ -1,5 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Carousel.interfaces import ICarouselBanner
+from Products.Carousel import CarouselMessageFactory as _
 
 def null_upgrade_step(setup_tool):
     """
@@ -30,5 +31,5 @@ def upgrade_11_to_20a1(setup_tool):
     actions = getToolByName(setup_tool, 'portal_actions')
     obj_actions = actions.get('object', {})
     if 'carousel' in obj_actions.keys():
-        obj_actions['carousel'].title = 'Banners'
+        obj_actions['carousel'].title = _(u'Carousel')
     
