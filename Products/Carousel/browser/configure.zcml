@@ -1,17 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:carousel="http://namespaces.plone.org/carousel"
     i18n_domain="Products.Carousel">
-    
-  <browser:menu
-    id="carousel_bannertemplates"
-    title="Carousel Banner Templates"
-    />
-    
-  <browser:menu
-    id="carousel_pagertemplates"
-    title="Carousel Pager Templates"
-    />
     
   <adapter factory=".folder.Carousel" />
   <adapter factory=".folder.CarouselSettingsFactory" />
@@ -63,60 +54,41 @@
     permission="zope.Public"
     />
     
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="banner-default"
-    template="templates/banner-default.pt"
-    menu="carousel_bannertemplates"
+  <carousel:banner
+ 	  name="banner-default"
+ 	  template="templates/banner-default.pt"
     title="Default"
-    permission="zope.Public"
-    />
-    
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="pager-none"
-    template="templates/pager-none.pt"
-    menu="carousel_pagertemplates"
+ 	  />
+ 	  
+  <carousel:pager
+ 	  name="pager-none"
+ 	  template="templates/pager-none.pt"
     title="None"
-    permission="zope.Public"
-    />
-    
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="pager-classic"
-    template="templates/pager-classic.pt"
-    menu="carousel_pagertemplates"
-    title="Classic (Title and Text)"
-    permission="zope.Public"
-    />
-    
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="pager-numbers"
-    template="templates/pager-numbers.pt"
-    menu="carousel_pagertemplates"
+ 	  />
+ 	  
+  <carousel:pager
+ 	  name="pager-classic"
+ 	  template="templates/pager-classic.pt"
+    title="Title and Text"
+ 	  />
+ 	  
+	<carousel:pager
+ 	  name="pager-numbers"
+ 	  template="templates/pager-numbers.pt"
     title="Numbers"
-    permission="zope.Public"
-    />
-    
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="pager-titles"
-    template="templates/pager-titles.pt"
-    menu="carousel_pagertemplates"
+ 	  />
+ 	  
+	<carousel:pager
+ 	  name="pager-titles"
+ 	  template="templates/pager-titles.pt"
     title="Titles"
-    permission="zope.Public"
-    />
-    
-  <browser:page
-    for="..interfaces.ICarousel"
-    name="pager-prevnext"
-    template="templates/pager-prevnext.pt"
-    menu="carousel_pagertemplates"
+ 	  />
+ 	  
+	<carousel:pager
+ 	  name="pager-prevnext"
+ 	  template="templates/pager-prevnext.pt"
     title="Previous and Next Buttons"
-    permission="zope.Public"
-    />
-
+ 	  />
 
   <!-- make security assertions for the viewlet, but don't actually register
        it for a particular manager, so that can be adjusted dynamically via

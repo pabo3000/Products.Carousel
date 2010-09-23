@@ -10,6 +10,9 @@
 
   <!--  Include translations directory -->
   <i18n:registerTranslations directory="locales" />
+  
+  <include file="menu.zcml"/>
+  <include file="meta.zcml"/>
 
   <!-- Include the sub-packages that use their own configure.zcml files. -->
   <include package=".browser" />
