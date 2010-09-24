@@ -17,7 +17,7 @@ def getContext(context):
         return context.__parent__
     return context
     
-def uniqueMenuItems(items):
+def uniqueMenuItems(items, sort_first):
     """
     Returns a list of tuples in the form (title, action) where both title
     and action are unique.
@@ -28,16 +28,17 @@ def uniqueMenuItems(items):
         if not item['title'] in results.keys() \
             and not item['action'] in results.values():
             results[item['title']] = item['action']
-    return results.items()
+    return sorted(results.items(),
+        key=lambda item: (item[0] != sort_first, item))
 
 def getBannerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_bannertemplates')
     items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
-    return SimpleVocabulary.fromItems(uniqueMenuItems(items))
+    return SimpleVocabulary.fromItems(uniqueMenuItems(items, 'Default'))
     
 def getPagerTemplates(context):
     context = getContext(context)
     menu = getUtility(IBrowserMenu, name='carousel_pagertemplates')
     items = menu.getMenuItems(DummyCarouselFolder(), context.REQUEST)
-    return SimpleVocabulary.fromItems(uniqueMenuItems(items))
+    return SimpleVocabulary.fromItems(uniqueMenuItems(items, 'None'))
