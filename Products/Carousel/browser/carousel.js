@@ -18,8 +18,12 @@
       position: 'absolute'
     });
     
-    this.triggerEvent = function (name) {
-      this.parent_container.triggerHandler(name, [this]);
+    this.triggerEvent = function (name, extra_args) {
+      var args = [this];
+      if (extra_args != undefined ) {
+        args = args.concat(extra_args);
+      }
+      this.parent_container.triggerHandler(name, args);
     };
     
     this.shiftIndex = function (offset, old_index) {
@@ -67,15 +71,15 @@
   
     this.animateTo = function (index) {
       if (index == this.current_index || this.animating) return;
-      this.triggerEvent('beforeAnimate');
+      this.triggerEvent('beforeAnimate', [this.current_index, index]);
       this.animating = true;
       this.banners.not(':eq(' + index.toString() + ')').fadeOut(this.opts.speed, function () {
         carousel.current_index = index;
       });
       this.banners.eq(index).fadeIn(this.opts.speed, function () {
-        carousel.current_index = index;
+        var old_index = carousel.current_index = index;
         carousel.animating = false;
-        carousel.triggerEvent('afterAnimate');
+        carousel.triggerEvent('afterAnimate', [old_index, index]);
       });
     };
   };
@@ -103,7 +107,7 @@
     this.animateTo = function (index, direction) {
       if (index == this.current_index || this.animating) return;
       this.animating = true;
-      this.triggerEvent('beforeAnimate');
+      this.triggerEvent('beforeAnimate', [this.current_index, index]);
             
       // Set the direction of animation if it isn't set explicitly.
       direction = (direction == undefined) ? 'left' : direction;
@@ -127,9 +131,9 @@
       this.slider.animate({
         left: '-=' + (single_offset * index_offset).toString() + 'px'
       }, this.opts.speed, 'swing', function () {
-        carousel.current_index = index;
+        var old_index = carousel.current_index = index;
         carousel.animating = false;
-        carousel.triggerEvent('afterAnimate');
+        carousel.triggerEvent('afterAnimate', [old_index, index]);
       });
     };
   };
@@ -167,12 +171,11 @@
       });
       
       // Set up event handlers.
-      container.bind('afterAnimate', function (e, carousel) {
-        var current_index = carousel.current_index;
+      container.bind('beforeAnimate', function (e, carousel, old_index, new_index) {
         carousel.banners.removeClass('carousel-banner-active')
-          .eq(current_index).addClass('carousel-banner-active');
+          .eq(new_index).addClass('carousel-banner-active');
         pager_items.removeClass('carousel-pager-item-active')
-          .eq(current_index).addClass('carousel-pager-item-active');
+          .eq(new_index).addClass('carousel-pager-item-active');
       });
       
     });
