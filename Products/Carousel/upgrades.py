@@ -8,12 +8,19 @@ def null_upgrade_step(setup_tool):
     """
     pass
     
-def upgrade_11_to_20a1(setup_tool):
+def upgrade_11_to_20b1(setup_tool):
     """
     Upgrade old Carousel banners by moving the description into the new
     body field.
     """
     
+    # Install new dependencies.
+    qi = getToolByName(setup_tool, 'portal_quickinstaller')
+    if qi.isProductInstallable('plone.app.z3cform') and not \
+        qi.isProductInstalled('plone.app.z3cform'):
+        qi.installProduct('plone.app.z3cform')
+    
+    # Update Carousel banners.
     catalog = getToolByName(setup_tool, 'portal_catalog')
     transforms = getToolByName(setup_tool, 'portal_transforms')
         
@@ -28,8 +35,8 @@ def upgrade_11_to_20a1(setup_tool):
                 description, mimetype='text/plain')
             banner.getObject().setText(html.getData(), mimetype='text/html')
             
+    # Change the tab name to Carousel.
     actions = getToolByName(setup_tool, 'portal_actions')
     obj_actions = actions.get('object', {})
     if 'carousel' in obj_actions.keys():
         obj_actions['carousel'].title = _(u'Carousel')
-    
