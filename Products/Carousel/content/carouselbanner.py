@@ -34,6 +34,8 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
         
     atapi.TextField('text',
         required=False,
+        validators = ('isTidyHtmlWithCleanup',),
+        default_output_type = 'text/x-html-safe',
         widget=atapi.RichWidget(
             label=_(u'Body'),
         ),
