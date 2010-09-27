@@ -1,8 +1,25 @@
 Changelog
 =========
 
-1.2 (unreleased)
-----------------
+2.0b1 (unreleased)
+------------------
+
+- Added slide as a possible transition type.
+  [yomatters]
+
+- Refactored javascript as a jQuery plugin that triggers jQuery events on
+  transitions.
+  [yomatters]
+
+- Added settings to customize the appearance of the banner and pager and the
+  length and type of transition.
+  [yomatters]
+
+- Added an optional pager for navigation among banners.
+  [yomatters]
+  
+- Replaced description field on Carousel banners with a rich-text body field.   
+  [yomatters]
 
 - Remove the browser layer to help with use in Plone 2.5.
   [davisagli]
