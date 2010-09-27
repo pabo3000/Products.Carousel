@@ -8,13 +8,21 @@ of your Plone site.  Features:
  
  * Banners can link to another page in the site, or an external URL.
  
- * Banners rotate via a simple fade effect every 8 seconds.  This is
-   implemented using the jQuery javascript library which is included with
-   Plone, so it's pretty lightweight.
+ * Carousel provides options to customize the appearance of the banner as well
+   as the length and type of transition.
    
- * Clicking on the title of a banner jumps to it immediately.
+ * An optional pager provides navigation among the banners.
  
- * Images will not rotate while the mouse cursor is hovering over the Carousel.
+ * Transition effects are implemented using the jQuery javascript library which 
+   is included with Plone, so they are pretty lightweight.
+ 
+ * Banners do not rotate while the mouse cursor is hovering over the Carousel.
+ 
+ * Banner and pager templates can be registered to customize the appearance of
+   the Carousel.
+   
+ * Carousel implements jQuery events, allowing for integration with custom
+   javascripts.
 
 
 Compatibility
@@ -29,7 +37,7 @@ Installation
 
 Add Products.Carousel to your buildout's list of eggs, and re-run buildout.
 
-Start up Zope and go to Site Setup, Add-on Products in your Plone site, and
+Start Zope, go to Site Setup -> Add-on Products in your Plone site and
 install the Carousel product.
 
 
@@ -43,7 +51,6 @@ is available.
 Detailed overview and tests
 ===========================
 
-
 Configuring a Carousel banner folder
 ------------------------------------
 
@@ -52,14 +59,14 @@ within a "Carousel Folder" in any section of the site.  For purposes of
 demonstration, let's add a Carousel folder to the root of the site.
 
 Carousel folders are a matter of configuration more than content, so they don't
-appear on the Add menu. Instead, there is a 'Configure banners' tab.  Clicking
-it while within a section that doesn't yet have a Carousel folder will result
+appear on the Add menu. Instead, there is a 'Carousel' tab.  Clicking
+it within a section that doesn't yet have a Carousel folder will result
 in the creation of a new one::
 
   >>> browser.open('http://nohost/plone')
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/carousel'
+  'http://nohost/plone/carousel/@@edit-carousel'
 
 The new folder should now provide the ICarouselFolder interface::
 
@@ -71,17 +78,16 @@ If, on the other hand, we're in a folder that already has a Carousel folder,
 the existing one will be used::
 
   >>> browser.goBack()
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/carousel'
+  'http://nohost/plone/carousel/@@edit-carousel'
 
-And if we try to configure banners while we're already doing so, nothing
+And if we try to configure Carousel while we're already doing so, nothing
 should change::
 
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/carousel'
-
+  'http://nohost/plone/carousel/@@edit-carousel'
 
 Adding a Carousel banner
 ------------------------
@@ -118,11 +124,10 @@ the banner we just added should be rendered (*before* the tabs)::
   ...Pirates and Cowboys...
   ...class="contentViews"...
 
-
 Adding banners in other scenarios
 ---------------------------------
 
-Non-structural folder - put the carousel in the containing folder
+Non-structural folder: put the carousel in the containing folder::
 
   >>> self.setRoles(['Manager'])
   >>> self.portal.invokeFactory('Folder', 'nonstructural')
@@ -131,23 +136,23 @@ Non-structural folder - put the carousel in the containing folder
   >>> from Products.CMFPlone.interfaces import INonStructuralFolder
   >>> alsoProvides(self.portal.nonstructural, INonStructuralFolder)
   >>> browser.open('http://nohost/plone/nonstructural')
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/carousel'
+  'http://nohost/plone/carousel/@@edit-carousel'
 
-Collection, not default item - put the carousel in the collection itself
+Collection, not default item: put the carousel in the collection itself::
 
   >>> self.portal.invokeFactory('Topic', 'topic')
   'topic'
   >>> browser.open('http://nohost/plone/topic')
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/topic/carousel'
+  'http://nohost/plone/topic/carousel/@@edit-carousel'
 
-Collection, as default item -- put the carousel in the containing folder
+Collection, as default item: put the carousel in the containing folder::
 
   >>> self.portal.default_page = 'topic'
   >>> browser.open('http://nohost/plone/topic')
-  >>> browser.getLink('Configure banners').click()
+  >>> browser.getLink('Carousel').click()
   >>> browser.url
-  'http://nohost/plone/carousel'
+  'http://nohost/plone/carousel/@@edit-carousel'
