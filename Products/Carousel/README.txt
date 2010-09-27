@@ -156,3 +156,81 @@ Collection, as default item: put the carousel in the containing folder::
   >>> browser.getLink('Carousel').click()
   >>> browser.url
   'http://nohost/plone/carousel/@@edit-carousel'
+  
+Customizing Carousel
+====================
+
+It is possible to customize presentation of the Carousel by registering custom
+templates for the banner and pager. To simplify the registration of Carousel
+templates and their associated menu items, Carousel includes special
+ZCML directives. To begin, define the Carousel XML namespace in your product's
+configure.zcml::
+
+    xmlns:carousel="http://namespaces.plone.org/carousel"
+    
+Then load the ZCML for Carousel::
+
+    <include package="Products.Carousel" />
+    
+Finally, register your templates::
+
+    <carousel:banner
+   	  name="banner-example"
+   	  template="banner-example.pt"
+      title="Default"
+   	  />
+   	  
+   	<carousel:pager
+      name="pager-classic"
+      template="templates/pager-classic.pt"
+      title="Title and Text"
+      />
+      
+Both the banner and pager directives can also accept a layer attribute to
+restrict the availability of the template to a particular browser layer.
+
+To make the development of banner and pager templates less repetitive,
+Carousel includes macros in the banner-base and pager-base templates. See
+banner-default.pt and pager-titles.pt for examples of how to use these macros.
+
+
+Carousel Events
+===============
+
+Carousel triggers jQuery events at key points in its operation, making it
+possible to integrate Carousel with other interactive elements on the page.
+These events are triggered on the Carousel container element:
+
+afterAnimate
+    Triggered immediately before animation begins. It passes as parameters the
+    Carousel object, the index of the previous banner and the index of the
+    current banner.
+
+beforeAnimate
+    Triggered immediately before animation begins. It passes as parameters the
+    Carousel object, the index of the current banner and the index of the
+    banner that will be active at the end of the animation.    
+    
+pause
+    Triggered when animation is paused, such as when the user mouses over
+    the Carousel. It passes as its parameter the Carousel object.
+
+play
+    Triggered when animation begins or resumes. It passes as its parameter the
+    Carousel object.
+    
+The Carousel object, which is passed as the first optional parameter to event
+handlers, is a Javascript object that encapsulates the current state of the
+Carousel. See carousel.js for details of the Carousel object.
+
+To bind a callback to one of the Carousel events, select the Carousel container
+element and call the jQuery bind method on it::
+
+    (function ($) {
+        $('.carousel').bind('afterAnimate', 
+            function (event, carousel, old_index, new_index) {
+            console.log(carousel);
+            console.log(old_index);
+            console.log(new_index);
+        });
+    })(jQuery);
