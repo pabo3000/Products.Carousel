@@ -43,9 +43,9 @@ class ICarouselSettings(Interface):
             u' banner. Note that custom banner types may not provide all elements.'),
         value_type=schema.Choice(
             vocabulary=SimpleVocabulary.fromItems((
-                (u'Title', u'title'), 
-                (u'Text', u'text'),
-                (u'Image', u'image'),
+                (_(u'Title'), u'title'), 
+                (_(u'Text'), u'text'),
+                (_(u'Image'), u'image'),
             )),
         ),
         default=[u'title', u'text', u'image'],
@@ -76,8 +76,8 @@ class ICarouselSettings(Interface):
     transition_type = schema.Choice(
         title=_(u'Transition'),
         vocabulary=SimpleVocabulary.fromItems((
-            (u'Cross Fade', u'fade'),
-            (u'Slide', u'slide'),
+            (_(u'Cross Fade'), u'fade'),
+            (_(u'Slide'), u'slide'),
         )),
         default=u'fade',
     )
