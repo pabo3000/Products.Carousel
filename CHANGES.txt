@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0b1 (unreleased)
+2.0b1 (2010-09-30)
 ------------------
 
 - Added slide as a possible transition type.
