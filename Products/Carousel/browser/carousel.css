@@ -1,30 +1,39 @@
-#carousel {
+.carousel {
+    position: relative;
     margin-bottom: 1em;
 }
-#carousel-banners {
-    float:left;
-    margin-right: 1em;
-}
 .carousel-banner {
+    display: none;
+    overflow: hidden;
+}
+.carousel-text {
+    background-color: #DDDDDD;
+    bottom: 0;
+    left: 0;
+    padding: 2%;
     position: absolute;
+    width: 96%;
 }
-a.carousel-button {
+.carousel-banner-1 {
     display: block;
-    text-decoration: none;
-    margin: 0 1em;
-    padding: 1em 0;
 }
-a.carousel-button.selected {
-    border-top: solid 1px #eee;
-    border-bottom: solid 1px #eee;
+.carousel-pager {
+    margin: 0.75em 0;
 }
-.carousel-title {
-    display: block;
-    font-size: 1.5em;
+.carousel-pager-item,
+.carousel-pager-button-prev,
+.carousel-pager-button-next {
+    background-color: #DDDDDD;
+    padding: 0.25em 0.5em;
 }
-a.carousel-button.selected .carousel-title {
-    font-weight: bold;
+.carousel-pager-item-active {
+    background-color: #75AD0A;
 }
-.carousel-description {
-    display: block;
+.carousel-pager-item-active:link,
+.carousel-pager-item-active:visited,
+.carousel-pager-item-active .carousel-title {
+    color: white;
+}
+.carousel-pager-item-classic {
+    cursor: pointer;
 }

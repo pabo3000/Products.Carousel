@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.2dev'
+version = '2.0b1'
 
 long_description = (
     read('Products', 'Carousel', 'README.txt')
@@ -48,6 +48,7 @@ setup(name='Products.Carousel',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+                        'plone.app.z3cform',
                         # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,

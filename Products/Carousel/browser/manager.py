@@ -3,16 +3,13 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.Carousel.interfaces import ICarouselFolder
 from Products.Carousel.utils import addPermissionsForRole
+from Products.Carousel.config import CAROUSEL_ID
 
-CAROUSEL_ID = 'carousel'
-
-class CarouselFolderManager(BrowserView):
+class CarouselManager(BrowserView):
     
     def __call__(self):
         
-        if ICarouselFolder.providedBy(self.context):
-            carousel = self.context
-        elif hasattr(self.context.aq_base, CAROUSEL_ID):
+        if hasattr(self.context.aq_base, CAROUSEL_ID):
             carousel = getattr(self.context, CAROUSEL_ID)
         else:
             pt = getToolByName(self.context, 'portal_types')
@@ -30,4 +27,7 @@ class CarouselFolderManager(BrowserView):
             carousel.setLocallyAllowedTypes(['Carousel Banner'])
             carousel.setImmediatelyAddableTypes(['Carousel Banner'])
 
-        self.request.RESPONSE.redirect(carousel.absolute_url())
+        self.request.RESPONSE.redirect(
+            carousel.absolute_url() + '/@@edit-carousel'
+        )
+
