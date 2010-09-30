@@ -17,15 +17,15 @@ class CarouselViewlet(ViewletBase):
         Returns a template for rendering the banners or pager.
         """
         
-        tempate = queryMultiAdapter(
+        template = queryMultiAdapter(
             (carousel, self.request),
             Interface,
             default=None,
             name=name.replace('@@', '')
         )
         
-        if tempate:
-            return tempate.__of__(carousel)
+        if template:
+            return template.__of__(carousel)
         return None
     
     def update(self):

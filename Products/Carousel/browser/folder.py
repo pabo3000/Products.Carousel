@@ -1,4 +1,5 @@
 from persistent import Persistent
+import ExtensionClass
 from zope.annotation import factory
 from zope.component import adapts
 from zope.interface import implements
@@ -7,12 +8,12 @@ from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget, \
     CheckBoxFieldWidget
 from plone.app.z3cform.layout import FormWrapper
 from Products.CMFCore.interfaces import IFolderish
-from Products.ATContentTypes.interfaces.topic import IATTopic
+from Products.ATContentTypes.interface.topic import IATTopic
 from Products.Carousel.interfaces import ICarousel, ICarouselSettings, \
     ICarouselFolder, ICarouselSettingsView, ICarouselBanner
 from Products.Carousel import CarouselMessageFactory as _
 
-class Carousel(object):
+class Carousel(ExtensionClass.Base):
     implements(ICarousel)
     adapts(ICarouselFolder)
     
