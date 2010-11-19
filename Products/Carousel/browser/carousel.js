@@ -142,42 +142,12 @@
     var opts = $.extend({}, $.fn.ploneCarousel.defaults, options);
     return this.each(function(){
       var container = $(this);
-      if (opts.transition == 'fade') {
-        var carousel = new FadingPloneCarousel(container, opts);
-      } else {
-        var carousel = new SlidingPloneCarousel(container, opts);
-      }
-      carousel.play();
-      container.hover(carousel.pause, carousel.play);
-      carousel.banners.eq(0).addClass('carousel-banner-active');
+      var carousel = $.fn.ploneCarousel.selectCarousel(container, opts);
       
-      // Set up the pager.
-      var pager_items = container.find('.carousel-pager-item');
-      pager_items.filter(':first').addClass('carousel-pager-item-first carousel-pager-item-active');
-      pager_items.filter(':last').addClass('carousel-pager-item-last');
-      pager_items.click(function () {
-        carousel.animateTo(pager_items.index($(this)));
-        return false;
-      });
-      
-      // Set up forward and back buttons.
-      container.find('.carousel-pager-button-prev').click(function () {
-        carousel.prevBanner();
-        return false;
-      });
-      container.find('.carousel-pager-button-next').click(function () {
-        carousel.nextBanner();
-        return false;
-      });
-      
-      // Set up event handlers.
-      container.bind('beforeAnimate', function (e, carousel, old_index, new_index) {
-        carousel.banners.removeClass('carousel-banner-active')
-          .eq(new_index).addClass('carousel-banner-active');
-        pager_items.removeClass('carousel-pager-item-active')
-          .eq(new_index).addClass('carousel-pager-item-active');
-      });
-      
+      $.fn.ploneCarousel.initCarousel(carousel);
+      $.fn.ploneCarousel.initPager(carousel);
+      $.fn.ploneCarousel.initEvents(carousel);
+
     });
   };
   
@@ -187,6 +157,52 @@
     height: 0,
     width: 0,
     transition: 'fade'
-  }
+  };
+  
+  $.fn.ploneCarousel.selectCarousel = function (container, opts) {
+    if (opts.transition == 'fade') {
+      return new FadingPloneCarousel(container, opts);
+    } else {
+      return new SlidingPloneCarousel(container, opts);
+    }
+  };
+  
+  $.fn.ploneCarousel.initCarousel = function (carousel) {
+    carousel.play();
+    carousel.parent_container.hover(carousel.pause, carousel.play);
+    carousel.banners.eq(0).addClass('carousel-banner-active');
+  };
+  
+  $.fn.ploneCarousel.initPager = function (carousel) {
+    // Set up the pager.
+    var pager_items = carousel.parent_container.find('.carousel-pager-item');
+    pager_items.filter(':first').addClass('carousel-pager-item-first carousel-pager-item-active');
+    pager_items.filter(':last').addClass('carousel-pager-item-last');
+    pager_items.click(function () {
+      carousel.animateTo(pager_items.index($(this)));
+      return false;
+    });
+    
+    // Set up forward and back buttons.
+    carousel.parent_container.find('.carousel-pager-button-prev').click(function () {
+      carousel.prevBanner();
+      return false;
+    });
+    carousel.parent_container.find('.carousel-pager-button-next').click(function () {
+      carousel.nextBanner();
+      return false;
+    });
+  };
+  
+  $.fn.ploneCarousel.initEvents = function (carousel) {
+    // Set up event handlers.
+    var pager_items = carousel.parent_container.find('.carousel-pager-item');
+    carousel.parent_container.bind('beforeAnimate', function (e, carousel, old_index, new_index) {
+      carousel.banners.removeClass('carousel-banner-active')
+        .eq(new_index).addClass('carousel-banner-active');
+      pager_items.removeClass('carousel-pager-item-active')
+        .eq(new_index).addClass('carousel-pager-item-active');
+    });
+  };
 
 })(jQuery);

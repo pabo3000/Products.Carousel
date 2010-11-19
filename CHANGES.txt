@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0 (unreleased)
+----------------
+
+- Split plugin into functions, making it easier to override parts of the
+  Carousel behavior.
+  [yomatters]
+
 2.0b1 (2010-09-30)
 ------------------
 
