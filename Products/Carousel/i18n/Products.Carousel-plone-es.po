@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Carousel\n"
-"POT-Creation-Date: 2010-09-29 18:19+0000\n"
+"POT-Creation-Date: 2010-11-19 16:44+0000\n"
 "PO-Revision-Date: 2010-03-02 19:06+0000\n"
 "Last-Translator: Noe Nieto <noe@iservices.com.mx>\n"
 "Language-Team: Español <desarrollo@iservices.com.mx>\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "A carousel banner which may include an image, text, and/or link."
 msgstr "Un carrusel de pancartas que pueden incluir una imagen, texto y/o una liga."
 
-#: ./browser/folder.py:70
+#: ./browser/folder.py:71
 msgid "Appearance"
 msgstr ""
 
@@ -52,11 +52,11 @@ msgstr ""
 msgid "Carousel Banner"
 msgstr "Carrusel de pancartas"
 
-#: ./browser/folder.py:101
+#: ./browser/folder.py:102
 msgid "Carousel Settings"
 msgstr ""
 
-#: ./browser/folder.py:102
+#: ./browser/folder.py:103
 msgid "Carousel allows you to create a rotating display of banners that contain images and text. To add a banner, use the Add New menu above. To modify existing banners, click the Contents tab."
 msgstr ""
 
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Cross Fade"
 msgstr ""
 
-#: ./browser/folder.py:90
+#: ./browser/folder.py:91
 msgid "Display"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Pager Type"
 msgstr ""
 
-#: ./browser/folder.py:111
+#: ./browser/folder.py:112
 msgid "Save"
 msgstr ""
 
@@ -141,7 +141,7 @@ msgstr "Se mostrará esta imagen cuando la pancarta se active."
 msgid "Title"
 msgstr ""
 
-#: ./browser/folder.py:81
+#: ./browser/folder.py:82
 #: ./interfaces.py:77
 msgid "Transition"
 msgstr ""

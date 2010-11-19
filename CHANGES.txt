@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0 (unreleased)
+2.0 (2010-11-19)
 ----------------
 
 - Split plugin into functions, making it easier to override parts of the

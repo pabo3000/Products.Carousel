@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-09-29 18:19+0000\n"
+"POT-Creation-Date: 2010-11-19 16:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "A carousel banner which may include an image, text, and/or link."
 msgstr ""
 
-#: ./browser/folder.py:70
+#: ./browser/folder.py:71
 msgid "Appearance"
 msgstr ""
 
@@ -54,11 +54,11 @@ msgstr ""
 msgid "Carousel Banner"
 msgstr ""
 
-#: ./browser/folder.py:101
+#: ./browser/folder.py:102
 msgid "Carousel Settings"
 msgstr ""
 
-#: ./browser/folder.py:102
+#: ./browser/folder.py:103
 msgid "Carousel allows you to create a rotating display of banners that contain images and text. To add a banner, use the Add New menu above. To modify existing banners, click the Contents tab."
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Cross Fade"
 msgstr ""
 
-#: ./browser/folder.py:90
+#: ./browser/folder.py:91
 msgid "Display"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Pager Type"
 msgstr ""
 
-#: ./browser/folder.py:111
+#: ./browser/folder.py:112
 msgid "Save"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./browser/folder.py:81
+#: ./browser/folder.py:82
 #: ./interfaces.py:77
 msgid "Transition"
 msgstr ""
