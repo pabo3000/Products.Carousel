@@ -37,7 +37,7 @@ Installation
 
 Add Products.Carousel to your buildout's list of eggs, and re-run buildout. If
 you get version conflicts while running buildout, you can use a known good
-version set find versions compatible with plone.app.z3cform::
+version set to find versions compatible with plone.app.z3cform::
 
     http://good-py.appspot.com/admin/plone.app.z3cform/0.5.0-1?plone=4.0.1
 
