@@ -1,5 +1,6 @@
 from persistent import Persistent
 import ExtensionClass
+from time import time
 from zope.annotation import factory
 from zope.component import adapts
 from zope.interface import implements
@@ -49,17 +50,20 @@ class CarouselSettings(Persistent):
     implements(ICarouselSettings)
     adapts(ICarouselFolder)
     
+    enabled = True
+    banner_template = u'@@banner-default'
+    banner_elements = [u'title', u'text', u'image']
+    width = None
+    height = None
+    pager_template = u'@@pager-numbers'
+    element_id = u'carousel-default'
+    transition_type = u'fade'
+    transition_speed = 0.5
+    transition_delay = 8.0
+    default_page_only = True
+        
     def __init__(self):
-        self.enabled = True
-        self.banner_template = u'@@banner-default'
-        self.banner_elements = [u'title', u'text', u'image']
-        self.width = None
-        self.height = None
-        self.pager_template = u'@@pager-numbers'
-        self.transition_type = u'fade'
-        self.transition_speed = 0.5
-        self.transition_delay = 8.0
-        self.default_page_only = True
+        self.element_id = u'carousel-%s' % hash(time())
         
 CarouselSettingsFactory = factory(CarouselSettings)
 
@@ -71,7 +75,7 @@ class AppearanceGroup(group.Group):
     label = _(u'Appearance')
     fields = field.Fields(ICarouselSettings).select(
         'banner_template', 'banner_elements', 'width', 'height',
-        'pager_template')
+        'pager_template', 'element_id')
     fields['banner_elements'].widgetFactory = CheckBoxFieldWidget
 
 class TransitionGroup(group.Group):

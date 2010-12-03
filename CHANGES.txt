@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.1 (unreleased)
+----------------
+
+- Added option for setting the ID of the Carousel.
+  [yomatters]
+
 2.0 (2010-11-19)
 ----------------
 

@@ -73,6 +73,12 @@ class ICarouselSettings(Interface):
         vocabulary='Products.Carousel.PagerTemplates',
     )
     
+    element_id = schema.TextLine(
+        title=_(u'Unique ID'),
+        description=_(u'Enter an ID for the Carousel container element.'
+        ' It can be used to apply CSS to the Carousel.'),
+    )
+    
     transition_type = schema.Choice(
         title=_(u'Transition'),
         vocabulary=SimpleVocabulary.fromItems((
