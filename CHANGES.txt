@@ -4,6 +4,9 @@ Changelog
 2.1 (unreleased)
 ----------------
 
+- Made instructions for adding and modifying banners more prominent.
+  [yomatters]
+
 - Added option for setting the ID of the Carousel.
   [yomatters]
 

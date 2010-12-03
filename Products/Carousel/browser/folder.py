@@ -8,6 +8,7 @@ from z3c.form import form, field, group
 from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget, \
     CheckBoxFieldWidget
 from plone.app.z3cform.layout import FormWrapper
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.interfaces import IFolderish
 from Products.ATContentTypes.interface.topic import IATTopic
 from Products.Carousel.interfaces import ICarousel, ICarouselSettings, \
@@ -104,10 +105,6 @@ class CarouselSettingsForm(group.GroupForm, form.EditForm):
     """
     
     label = _(u'Carousel Settings')
-    description = _(u'Carousel allows you to create a rotating display of' 
-        ' banners that contain images and text. To add a banner, use the'
-        ' Add New menu above. To modify existing banners, click the'
-        ' Contents tab.')
     groups = (AppearanceGroup, TransitionGroup, DisplayGroup,)
     
     def getContent(self):
@@ -122,4 +119,5 @@ class CarouselSettingsView(FormWrapper):
     
     implements(ICarouselSettingsView)
 
+    index = ViewPageTemplateFile('settings.pt')
     form = CarouselSettingsForm    

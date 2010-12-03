@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-19 16:44+0000\n"
+"POT-Creation-Date: 2010-12-03 17:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "A carousel banner which may include an image, text, and/or link."
 msgstr ""
 
-#: ./browser/folder.py:71
+#: ./browser/folder.py:76
 msgid "Appearance"
 msgstr ""
 
@@ -54,19 +54,15 @@ msgstr ""
 msgid "Carousel Banner"
 msgstr ""
 
-#: ./browser/folder.py:102
+#: ./browser/folder.py:107
 msgid "Carousel Settings"
 msgstr ""
 
-#: ./browser/folder.py:103
-msgid "Carousel allows you to create a rotating display of banners that contain images and text. To add a banner, use the Add New menu above. To modify existing banners, click the Contents tab."
-msgstr ""
-
-#: ./interfaces.py:79
+#: ./interfaces.py:85
 msgid "Cross Fade"
 msgstr ""
 
-#: ./browser/folder.py:91
+#: ./browser/folder.py:96
 msgid "Display"
 msgstr ""
 
@@ -74,15 +70,19 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+#: ./interfaces.py:78
+msgid "Enter an ID for the Carousel container element. It can be used to apply CSS to the Carousel."
+msgstr ""
+
 #: ./interfaces.py:64
 msgid "Enter the height of the banner in pixels. If you leave this field blank, Carousel will use the height of the first banner."
 msgstr ""
 
-#: ./interfaces.py:94
+#: ./interfaces.py:100
 msgid "Enter the number of seconds that Carousel should pause between banners."
 msgstr ""
 
-#: ./interfaces.py:87
+#: ./interfaces.py:93
 msgid "Enter the speed of the transition in seconds."
 msgstr ""
 
@@ -99,11 +99,11 @@ msgstr ""
 msgid "Manage Carousel banners for this section."
 msgstr ""
 
-#: ./interfaces.py:101
+#: ./interfaces.py:107
 msgid "Only display on the default item"
 msgstr ""
 
-#: ./interfaces.py:102
+#: ./interfaces.py:108
 msgid "Only display the Carousel on the default item of this folder. Otherwise, the Carousel appears on every item in the folder."
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Pager Type"
 msgstr ""
 
-#: ./browser/folder.py:112
+#: ./browser/folder.py:113
 msgid "Save"
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Select the elements that should be visible on the banner. Note that custom banner types may not provide all elements."
 msgstr ""
 
-#: ./interfaces.py:80
+#: ./interfaces.py:86
 msgid "Slide"
 msgstr ""
 
@@ -143,20 +143,24 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./browser/folder.py:82
-#: ./interfaces.py:77
+#: ./browser/folder.py:87
+#: ./interfaces.py:83
 msgid "Transition"
 msgstr ""
 
-#: ./interfaces.py:93
+#: ./interfaces.py:99
 msgid "Transition Delay"
 msgstr ""
 
-#: ./interfaces.py:86
+#: ./interfaces.py:92
 msgid "Transition Speed"
 msgstr ""
 
 #: ./interfaces.py:29
 msgid "Uncheck this box to hide the Carousel temporarily."
+msgstr ""
+
+#: ./interfaces.py:77
+msgid "Unique ID"
 msgstr ""
 
