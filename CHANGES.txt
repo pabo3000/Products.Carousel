@@ -4,6 +4,9 @@ Changelog
 2.1 (unreleased)
 ----------------
 
+- Fixed known good versions set link.
+  [yomatters]
+
 - Made instructions for adding and modifying banners more prominent.
   [yomatters]
 

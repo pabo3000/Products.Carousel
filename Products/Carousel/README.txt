@@ -39,7 +39,7 @@ Add Products.Carousel to your buildout's list of eggs, and re-run buildout. If
 you get version conflicts while running buildout, you can use a known good
 version set to find versions compatible with plone.app.z3cform::
 
-    http://good-py.appspot.com/admin/plone.app.z3cform/0.5.0-1?plone=4.0.1
+    http://good-py.appspot.com/release/plone.app.z3cform/0.5.0-1?plone=4.0.2
 
 Start Zope, go to Site Setup -> Add-on Products in your Plone site and
 install the Carousel product.
