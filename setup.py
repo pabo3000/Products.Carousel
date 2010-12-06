@@ -13,13 +13,7 @@ version = '2.1'
 long_description = (
     read('Products', 'Carousel', 'README.txt')
     + '\n' +
-    'Change history\n'
-    '**************\n'
-    + '\n' +
     read('CHANGES.txt')
-    + '\n' +
-    'Contributors\n'
-    '************\n'
     + '\n' +
     read('CONTRIBUTORS.txt')
     )
