@@ -54,14 +54,14 @@
       carousel.timer = setInterval(function () {
         carousel.nextBanner();
       }, carousel.opts.delay);
-      this.triggerEvent('play');
+      carousel.triggerEvent('play');
     };
     
     this.pause = function () {
       if (carousel.timer) {
         clearInterval(carousel.timer);
       }
-      this.triggerEvent('pause');
+      carousel.triggerEvent('pause');
     };
   };
   

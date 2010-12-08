@@ -1,6 +1,12 @@
 Change history
 ==============
 
+2.1b2 (2010-12-08)
+------------------
+
+- Fixed javascript error on Plone 3.
+  [yomatters]
+
 2.1b1 (2010-12-06)
 ------------------
 

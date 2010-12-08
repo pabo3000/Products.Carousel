@@ -30,5 +30,14 @@
         profile="Products.Carousel:default"
         handler="Products.Carousel.upgrades.null_upgrade_step"
         />
+        
+    <genericsetup:upgradeStep
+        source="2.1b1"
+        destination="2.1b2"
+        title="Upgrade from 2.1b1 to 2.1b2"
+        description=""
+        profile="Products.Carousel:default"
+        handler="Products.Carousel.upgrades.null_upgrade_step"
+        />
 
 </configure>
