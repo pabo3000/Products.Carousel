@@ -34,13 +34,13 @@ class Carousel(ExtensionClass.Base):
         Returns a list of objects that provide ICarouselBanner.
         """
         
-        banner_objects = []
+        banner_brains = []
         if IFolderish.providedBy(self.context):
-            banner_objects = self.context.objectValues()
+            banner_brains = self.context.getFolderContents()
         elif IATTopic.providedBy(self.context):
-            banner_objects = [brain.getObject() for brain \
-                in self.context.queryCatalog()]
-        
+            banner_brains = self.context.queryCatalog()
+            
+        banner_objects = [b.getObject() for b in banner_brains]
         return [b for b in banner_objects if ICarouselBanner.providedBy(b)]
 
 class CarouselSettings(Persistent):
