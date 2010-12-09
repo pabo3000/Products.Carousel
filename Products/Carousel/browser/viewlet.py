@@ -41,7 +41,9 @@ class CarouselViewlet(ViewletBase):
             folder = context_state.parent()
                 
         if hasattr(aq_base(folder), CAROUSEL_ID):
-            carousel = ICarousel(folder[CAROUSEL_ID])
+            carousel = ICarousel(folder[CAROUSEL_ID], None)
+            if not carousel:
+                return
         else:
             return
         

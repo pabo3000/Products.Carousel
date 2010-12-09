@@ -1,6 +1,13 @@
 Change history
 ==============
 
+2.1dev (unreleased)
+------------------
+
+- Fixed a bug that affected folders containing an item with the ID 'carousel'
+  that was not a Carousel folder.
+  [yomatters]
+
 2.1b2 (2010-12-08)
 ------------------
 
