@@ -4,6 +4,9 @@ Change history
 2.1dev (unreleased)
 ------------------
 
+- Fixed permission bug that affected unpublished Carousel folders.
+  [yomatters]
+
 - Fixed Carousel banner lookup so that banner view permissions are respected.
   [yomatters]
 

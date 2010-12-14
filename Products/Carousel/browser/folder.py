@@ -8,6 +8,7 @@ from z3c.form import form, field, group
 from z3c.form.browser.checkbox import SingleCheckBoxFieldWidget, \
     CheckBoxFieldWidget
 from plone.app.z3cform.layout import FormWrapper
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.interfaces import IFolderish
 from Products.ATContentTypes.interface.topic import IATTopic
@@ -36,7 +37,11 @@ class Carousel(ExtensionClass.Base):
         
         banner_brains = []
         if IFolderish.providedBy(self.context):
-            banner_brains = self.context.getFolderContents()
+            catalog = getToolByName(self.context, 'portal_catalog')
+            banner_brains = catalog.searchResults({
+                'path': '/'.join(self.context.getPhysicalPath()),
+                'object_provides': ICarouselBanner.__identifier__,
+            })
         elif IATTopic.providedBy(self.context):
             banner_brains = self.context.queryCatalog()
             
