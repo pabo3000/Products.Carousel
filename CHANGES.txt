@@ -4,6 +4,9 @@ Change history
 2.1dev (unreleased)
 ------------------
 
+- Fixed animation logic for sliding Carousel.
+  [yomatters]
+
 - Made link URL optional.
   [yomatters]
 

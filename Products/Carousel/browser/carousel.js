@@ -114,7 +114,7 @@
       
       // Figure out the shift.
       var shift = (direction == 'left') ? -carousel.current_index : carousel.max_index - carousel.current_index;
-      
+            
       // Position the banners on the slider.
       this.banners.each(function (banner_index, banner) {
         var new_index = carousel.shiftIndex(shift, banner_index);
@@ -126,10 +126,9 @@
       this.slider.css('left', start_left);
       
       // Do the animation.
-      var single_offset = (direction == 'left') ? this.opts.width : -this.opts.width;
       var index_offset = this.shiftIndex(shift, index);
       this.slider.animate({
-        left: '-=' + (single_offset * index_offset).toString() + 'px'
+        left: -this.opts.width * index_offset
       }, this.opts.speed, 'swing', function () {
         var old_index = carousel.current_index = index;
         carousel.animating = false;
