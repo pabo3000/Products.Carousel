@@ -64,6 +64,7 @@ CarouselBannerSchema['description'].widget.visible = {
     'edit': 'hidden'
 }
 CarouselBannerSchema['remoteUrl'].widget.label = _(u'Link URL')
+CarouselBannerSchema['remoteUrl'].required = False
 
 schemata.finalizeATCTSchema(CarouselBannerSchema, moveDiscussion=False)
 

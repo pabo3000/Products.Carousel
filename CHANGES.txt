@@ -4,6 +4,9 @@ Change history
 2.1dev (unreleased)
 ------------------
 
+- Made link URL optional.
+  [yomatters]
+
 - Added the ability to enter an external image URL instead of
   uploading an image.
   [yomatters]
