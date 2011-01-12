@@ -106,7 +106,7 @@ the add menu::
 We can set various things including a title, target URL, and image::
 
   >>> browser.getControl('Title').value = 'Pirates and Cowboys agree: Ninjas suck'
-  >>> browser.getControl('URL').value = 'http://www.plone.org'
+  >>> browser.getControl('Link URL').value = 'http://www.plone.org'
   >>> browser.getControl(name='image_file')
   <Control name='image_file' type='file'>
   >>> browser.getControl('Save').click()

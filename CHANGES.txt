@@ -4,6 +4,10 @@ Change history
 2.1dev (unreleased)
 ------------------
 
+- Added the ability to enter an external image URL instead of
+  uploading an image.
+  [yomatters]
+
 - Fixed permission bug that affected unpublished Carousel folders.
   [yomatters]
 

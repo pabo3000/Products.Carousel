@@ -32,6 +32,17 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
             show_content_type = False)
         ),
         
+    atapi.StringField('imageUrl',
+        required=False,
+        searchable=False,
+        default = "http://",
+        widget = atapi.StringWidget(
+            description = _(u'Instead of uploading an image, you may enter'
+                u' the URL of an image hosted on another server.'),
+            label = _(u'Image URL'),
+            maxlength = '511')
+        ),
+        
     atapi.TextField('text',
         required=False,
         validators = ('isTidyHtmlWithCleanup',),
@@ -52,6 +63,7 @@ CarouselBannerSchema['description'].widget.visible = {
     'view': 'hidden', 
     'edit': 'hidden'
 }
+CarouselBannerSchema['remoteUrl'].widget.label = _(u'Link URL')
 
 schemata.finalizeATCTSchema(CarouselBannerSchema, moveDiscussion=False)
 

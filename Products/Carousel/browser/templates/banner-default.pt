@@ -1,28 +1,38 @@
 <metal:banners use-macro="context/@@banner-base/macros/banners">
     <metal:banner fill-slot="banner_body">
-        <a tal:condition="python:'image' in elements"
-            tal:attributes="href banner/getRemoteUrl;
-                title banner/Title;"
-            class="carousel-image">
-            <img tal:replace="structure python:banner.tag()"/>
-        </a>
-        <div tal:define="text banner/getText|nothing;" 
-            tal:condition="python:'title' in elements or ('text' in elements and text)"
-            class="carousel-text">
-            <a tal:condition="python:'title' in elements"
-                tal:attributes="href banner/getRemoteUrl;"
-                tal:content="banner/Title"
-                class="carousel-title">
-                Banner title
+        <tal:banner tal:define="link_url banner/getRemoteUrl;
+                image_url banner/getImageUrl;">
+            <a tal:define="image banner/getImage;
+                    has_image_url python:image_url and not image_url == 'http://';"
+                tal:condition="python:'image' in elements and (image or has_image_url)"
+                tal:attributes="href link_url;
+                    title banner/Title;"
+                class="carousel-image">
+                <img tal:condition="image" 
+                    tal:replace="structure python:banner.tag()"/>
+                <img tal:condition="not:image"
+                    tal:attributes="src image_url;
+                        alt banner/Title;"
+                    src="" />
             </a>
-            <div tal:condition="python:text and 'text' in elements"
-                tal:content="structure text"
-                class="carousel-body">
-                Body text
+            <div tal:define="text banner/getText|nothing;" 
+                tal:condition="python:'title' in elements or ('text' in elements and text)"
+                class="carousel-text">
+                <a tal:condition="python:'title' in elements"
+                    tal:attributes="href link_url;"
+                    tal:content="banner/Title"
+                    class="carousel-title">
+                    Banner title
+                </a>
+                <div tal:condition="python:text and 'text' in elements"
+                    tal:content="structure text"
+                    class="carousel-body">
+                    Body text
+                </div>
             </div>
-        </div>
-        <a tal:attributes="href banner/getRemoteUrl;"
-            class="carousel-structural-link">
-        </a>
+            <a tal:attributes="href link_url;"
+                class="carousel-structural-link">
+            </a>
+        </tal:banner>
     </metal:banner>
 </metal:banners>
