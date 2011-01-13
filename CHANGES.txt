@@ -2,7 +2,10 @@ Change history
 ==============
 
 2.1dev (unreleased)
-------------------
+-------------------
+
+- Made Carousel respect folder order of banners.
+  [yomatters]
 
 - Fixed animation logic for sliding Carousel.
   [yomatters]

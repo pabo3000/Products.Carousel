@@ -41,6 +41,7 @@ class Carousel(ExtensionClass.Base):
             banner_brains = catalog.searchResults({
                 'path': '/'.join(self.context.getPhysicalPath()),
                 'object_provides': ICarouselBanner.__identifier__,
+                'sort_on': 'getObjPositionInParent',
             })
         elif IATTopic.providedBy(self.context):
             banner_brains = self.context.queryCatalog()
