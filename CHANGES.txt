@@ -1,8 +1,8 @@
 Change history
 ==============
 
-2.1dev (unreleased)
--------------------
+2.1b3 (2011-01-19)
+------------------
 
 - Changed default banner to use the image URL first and then fall back to the
   uploaded image.
