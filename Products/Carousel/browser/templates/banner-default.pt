@@ -12,9 +12,9 @@
                 class="carousel-image">
                 <span tal:omit-tag="has_link_url"
                     class="carousel-image">
-                    <img tal:condition="image" 
+                    <img tal:condition="not:has_image_url" 
                         tal:replace="structure python:banner.tag()"/>
-                    <img tal:condition="not:image"
+                    <img tal:condition="has_image_url"
                         tal:attributes="src image_url;
                             alt banner/Title;"
                         src="" />
