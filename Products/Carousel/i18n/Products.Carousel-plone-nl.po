@@ -15,8 +15,12 @@ msgstr ""
 "Language-Code: nl\n"
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: Products.Carousel\n"
 "x-is-fallback-for: nl-be\n"
+"Domain: plone\n"
+
+#: ./profiles/default/types/Carousel_Banner.xml
+msgid "A carousel banner which may include an image, text, and/or link."
+msgstr "Een carousel banner met een afbeelding, tekst en/of een link."
 
 #: ./browser/folder.py:82
 msgid "Appearance"
@@ -42,17 +46,18 @@ msgstr "Bannerbreedte"
 msgid "Body"
 msgstr "Hoofdtekst"
 
+#: ./profiles/default/actions.xml
 #: ./upgrades.py:42
 msgid "Carousel"
 msgstr "Carousel"
 
+#: ./profiles/default/types/Carousel_Banner.xml
+msgid "Carousel Banner"
+msgstr "Carousel Banner"
+
 #: ./browser/folder.py:113
 msgid "Carousel Settings"
 msgstr "Carousel Instellingen"
-
-#: ./browser/settings.pt:16
-msgid "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
-msgstr "Carousel toont een aantal roterende banners met een afbeelding en tekst. ${carousel-actions}"
 
 #: ./interfaces.py:85
 msgid "Cross Fade"
@@ -102,6 +107,10 @@ msgstr "In plaats van een afbeelding uploaden, kunt u ook een afbeelding gebruik
 #: ./content/carouselbanner.py:66
 msgid "Link URL"
 msgstr "Link URL"
+
+#: ./profiles/default/actions.xml
+msgid "Manage Carousel banners for this section."
+msgstr ""
 
 #: ./interfaces.py:107
 msgid "Only display on the default item"
@@ -175,8 +184,4 @@ msgstr "Deselecteer deze optie om de Carousel tijdelijk te verbergen."
 #: ./interfaces.py:77
 msgid "Unique ID"
 msgstr "Unieke ID"
-
-#: ./browser/settings.pt:24
-msgid "click the Contents tab"
-msgstr "Klik op het tabblad 'Inhoud'"
 
