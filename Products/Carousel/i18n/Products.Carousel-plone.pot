@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-12-03 17:38+0000\n"
+"POT-Creation-Date: 2011-05-20 11:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "A carousel banner which may include an image, text, and/or link."
 msgstr ""
 
-#: ./browser/folder.py:76
+#: ./browser/folder.py:82
 msgid "Appearance"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Banner Width"
 msgstr ""
 
-#: ./content/carouselbanner.py:40
+#: ./content/carouselbanner.py:51
 msgid "Body"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Carousel Banner"
 msgstr ""
 
-#: ./browser/folder.py:107
+#: ./browser/folder.py:113
 msgid "Carousel Settings"
 msgstr ""
 
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Cross Fade"
 msgstr ""
 
-#: ./browser/folder.py:96
+#: ./browser/folder.py:102
 msgid "Display"
 msgstr ""
 
@@ -95,6 +95,18 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
+#: ./content/carouselbanner.py:42
+msgid "Image URL"
+msgstr ""
+
+#: ./content/carouselbanner.py:40
+msgid "Instead of uploading an image, you may enter the URL of an image hosted on another server."
+msgstr ""
+
+#: ./content/carouselbanner.py:66
+msgid "Link URL"
+msgstr ""
+
 #: ./profiles/default/actions.xml
 msgid "Manage Carousel banners for this section."
 msgstr ""
@@ -111,7 +123,7 @@ msgstr ""
 msgid "Pager Type"
 msgstr ""
 
-#: ./browser/folder.py:113
+#: ./browser/folder.py:119
 msgid "Save"
 msgstr ""
 
@@ -143,7 +155,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./browser/folder.py:87
+#: ./browser/folder.py:93
 #: ./interfaces.py:83
 msgid "Transition"
 msgstr ""

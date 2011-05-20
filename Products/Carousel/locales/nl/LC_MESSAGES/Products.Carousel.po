@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-12-03 17:38+0000\n"
+"POT-Creation-Date: 2011-05-20 11:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Jean-Paul Ladage <j.ladage@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,9 @@ msgstr ""
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: Products.Carousel\n"
+"x-is-fallback-for: nl-be\n"
 
-#: ./browser/folder.py:76
+#: ./browser/folder.py:82
 msgid "Appearance"
 msgstr "Weergave"
 
@@ -37,7 +38,7 @@ msgstr "Type banner"
 msgid "Banner Width"
 msgstr "Breedte banner"
 
-#: ./content/carouselbanner.py:40
+#: ./content/carouselbanner.py:51
 msgid "Body"
 msgstr "Hoofdtekst"
 
@@ -45,7 +46,7 @@ msgstr "Hoofdtekst"
 msgid "Carousel"
 msgstr "Carousel"
 
-#: ./browser/folder.py:107
+#: ./browser/folder.py:113
 msgid "Carousel Settings"
 msgstr "Carousel instellingen"
 
@@ -57,13 +58,13 @@ msgstr "Carousel toont een aantal roterende banners met een afbeelding en tekst.
 msgid "Cross Fade"
 msgstr "Overloop effect"
 
-#: ./browser/folder.py:96
+#: ./browser/folder.py:102
 msgid "Display"
 msgstr "Weergave"
 
 #: ./interfaces.py:28
 msgid "Enabled"
-msgstr "Aan"
+msgstr "Carousel weergeven"
 
 #: ./interfaces.py:78
 msgid "Enter an ID for the Carousel container element. It can be used to apply CSS to the Carousel."
@@ -90,6 +91,18 @@ msgstr "Geef de breedte van de banner in pixels op. Als u dit leeg laat, zal de 
 msgid "Image"
 msgstr "Afbeeldign"
 
+#: ./content/carouselbanner.py:42
+msgid "Image URL"
+msgstr "Afbeelding URL"
+
+#: ./content/carouselbanner.py:40
+msgid "Instead of uploading an image, you may enter the URL of an image hosted on another server."
+msgstr "In plaats van een afbeelding uploaden, kunt u ook een afbeelding gebruiken die op een andere server staat."
+
+#: ./content/carouselbanner.py:66
+msgid "Link URL"
+msgstr "Link URL"
+
 #: ./interfaces.py:107
 msgid "Only display on the default item"
 msgstr "Alleen tonen op de standaardpagina"
@@ -102,7 +115,7 @@ msgstr "De Carousel wordt alleen getoond als u de standaardpagina van deze map b
 msgid "Pager Type"
 msgstr "Pagineer type"
 
-#: ./browser/folder.py:113
+#: ./browser/folder.py:119
 msgid "Save"
 msgstr "Bewaren"
 
@@ -136,13 +149,13 @@ msgstr "Titel"
 
 #: ./browser/settings.pt:17
 msgid "To add a banner, use the Add New menu above."
-msgstr "Om een banner toe te voegen, gebruikt u het "Nieuw item toevoegen" menu hierboven."
+msgstr "Om een banner toe te voegen, gebruikt u het 'Nieuw item toevoegen' menu hierboven."
 
 #: ./browser/settings.pt:22
 msgid "To modify existing banners, ${click-contents}."
 msgstr "Om bestaande bannners te wijzigen, ${click-contents}"
 
-#: ./browser/folder.py:87
+#: ./browser/folder.py:93
 #: ./interfaces.py:83
 msgid "Transition"
 msgstr "Overgang"
