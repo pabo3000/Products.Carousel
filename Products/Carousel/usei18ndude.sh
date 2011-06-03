@@ -35,3 +35,6 @@ touch i18n/$DOMAIN-$PLONE.pot
 $I18NDUDE rebuild-pot --pot i18n/$DOMAIN-$PLONE.pot --create $PLONE ./
 #For Spanish
 $I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-es.po
+
+#For Português
+$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-pt-br.po

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-05-20 11:46+0000\n"
+"POT-Creation-Date: 2011-06-03 19:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Jean-Paul Ladage <j.ladage@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,10 +49,6 @@ msgstr "Carousel"
 #: ./browser/folder.py:113
 msgid "Carousel Settings"
 msgstr "Carousel Instellingen"
-
-#: ./browser/settings.pt:16
-msgid "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
-msgstr "Carousel toont een aantal roterende banners met een afbeelding en tekst. ${carousel-actions}"
 
 #: ./interfaces.py:85
 msgid "Cross Fade"
@@ -147,13 +143,10 @@ msgstr "Deze afbeelding zal getoond woren als deze banner actief is."
 msgid "Title"
 msgstr "Titel"
 
-#: ./browser/settings.pt:17
-msgid "To add a banner, use the Add New menu above."
-msgstr "Om een banner toe te voegen, gebruikt u het 'Nieuw item toevoegen' menu hierboven."
-
+#. Default: "To modify existing banners, ${click-contents}."
 #: ./browser/settings.pt:22
-msgid "To modify existing banners, ${click-contents}."
-msgstr "Om bestaande bannners te wijzigen, ${click-contents}"
+msgid "To modify existing banners"
+msgstr ""
 
 #: ./browser/folder.py:93
 #: ./interfaces.py:83
@@ -175,6 +168,16 @@ msgstr "Deselecteer deze optie om de Carousel tijdelijk te verbergen."
 #: ./interfaces.py:77
 msgid "Unique ID"
 msgstr "Unieke ID"
+
+#. Default: "To add a banner, use the Add New menu above."
+#: ./browser/settings.pt:17
+msgid "carousel_actions"
+msgstr ""
+
+#. Default: "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
+#: ./browser/settings.pt:16
+msgid "carousel_settings_introduction"
+msgstr ""
 
 #: ./browser/settings.pt:24
 msgid "click the Contents tab"

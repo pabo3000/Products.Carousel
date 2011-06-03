@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-05-20 11:46+0000\n"
+"POT-Creation-Date: 2011-06-03 19:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,10 +47,6 @@ msgstr ""
 
 #: ./browser/folder.py:113
 msgid "Carousel Settings"
-msgstr ""
-
-#: ./browser/settings.pt:16
-msgid "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
 msgstr ""
 
 #: ./interfaces.py:85
@@ -146,12 +142,9 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ./browser/settings.pt:17
-msgid "To add a banner, use the Add New menu above."
-msgstr ""
-
+#. Default: "To modify existing banners, ${click-contents}."
 #: ./browser/settings.pt:22
-msgid "To modify existing banners, ${click-contents}."
+msgid "To modify existing banners"
 msgstr ""
 
 #: ./browser/folder.py:93
@@ -173,6 +166,16 @@ msgstr ""
 
 #: ./interfaces.py:77
 msgid "Unique ID"
+msgstr ""
+
+#. Default: "To add a banner, use the Add New menu above."
+#: ./browser/settings.pt:17
+msgid "carousel_actions"
+msgstr ""
+
+#. Default: "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
+#: ./browser/settings.pt:16
+msgid "carousel_settings_introduction"
 msgstr ""
 
 #: ./browser/settings.pt:24
