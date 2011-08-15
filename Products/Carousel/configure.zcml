@@ -32,6 +32,10 @@
     provides="zope.schema.interfaces.IVocabularyFactory"
     />
   
+  <include 
+    zcml:condition="installed collective.googleanalytics.tracking"
+    package=".analytics"/>
+  
   <!-- Register the installation GenericSetup extension profile -->
   <genericsetup:registerProfile
       name="default"
