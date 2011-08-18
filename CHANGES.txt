@@ -4,10 +4,14 @@ Change history
 2.1 (unreleased)
 ------------------
 
+- Allow users with the Site Administrator role to add Carousel banners by default.
+  [davisagli]
+
 - Added collective.googleanalytics tracking plugin for tracking banner clicks.
   [yomatters]
 
-- Added Dutch translations. [jladage]
+- Added Dutch translations.
+  [jladage]
 
 
 2.1b3 (2011-01-19)
