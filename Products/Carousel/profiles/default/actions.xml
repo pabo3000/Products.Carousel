@@ -13,7 +13,7 @@
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
    <property name="permissions">
-    <element value="Carousel: Add Carousel Banner"/>
+    <element value="Carousel: Manage Carousel"/>
    </property>
    <property name="visible">True</property>
   </object>

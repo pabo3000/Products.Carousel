@@ -16,7 +16,7 @@
 
   <permission
     id="Products.Carousel.ManageCarousel"
-    title="Carousel: Add Carousel Banner"
+    title="Carousel: Manage Carousel"
     />
 
   <!-- Include the sub-packages that use their own configure.zcml files. -->
