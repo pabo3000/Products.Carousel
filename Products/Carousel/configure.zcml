@@ -14,6 +14,11 @@
   <include file="menu.zcml"/>
   <include file="meta.zcml"/>
 
+  <permission
+    id="Products.Carousel.ManageCarousel"
+    title="Carousel: Add Carousel Banner"
+    />
+
   <!-- Include the sub-packages that use their own configure.zcml files. -->
   <include package=".browser" />
   <include package=".content" />

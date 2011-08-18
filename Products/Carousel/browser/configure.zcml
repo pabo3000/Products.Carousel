@@ -11,14 +11,14 @@
     for="Products.CMFCore.interfaces.IFolderish"
     name="edit-carousel"
     class=".manager.CarouselManager"
-    permission="cmf.ManagePortal"
+    permission="Products.Carousel.ManageCarousel"
     />
     
   <browser:page
     for="Products.Carousel.interfaces.ICarouselFolder"
     name="edit-carousel"
     class=".folder.CarouselSettingsView"
-    permission="cmf.ManagePortal"
+    permission="Products.Carousel.ManageCarousel"
     />
     
   <browser:viewlet
