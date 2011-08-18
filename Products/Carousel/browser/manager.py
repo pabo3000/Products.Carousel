@@ -21,6 +21,7 @@ class CarouselManager(BrowserView):
             
             # make sure Carousel banners are addable within the new folder
             addPermissionsForRole(carousel, 'Manager', ('Carousel: Add Carousel Banner',))
+            addPermissionsForRole(carousel, 'Site Administrator', ('Carousel: Add Carousel Banner',))
             
             # make sure *only* Carousel banners are addable
             carousel.setConstrainTypesMode(1)
