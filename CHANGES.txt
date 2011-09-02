@@ -4,6 +4,9 @@ Change history
 2.1 (unreleased)
 ------------------
 
+- Added Finnish translation.
+  [datakurre]
+
 - Allow users with the Site Administrator role to add Carousel banners by default.
   [davisagli]
 
