@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Carousel\n"
-"POT-Creation-Date: 2010-12-03 17:38+0000\n"
+"POT-Creation-Date: 2011-09-06 14:19+0000\n"
 "PO-Revision-Date: 2010-12-08 11:00+0200\n"
 "Last-Translator: Asko Soukka <asko.soukka@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: latin9 utf-8\n"
 "Domain: Products.Carousel\n"
 
-#: ./browser/folder.py:76
+#: ./browser/folder.py:82
 msgid "Appearance"
 msgstr "Ulkoasu"
 
@@ -37,7 +37,7 @@ msgstr "Banderollin tyyppi"
 msgid "Banner Width"
 msgstr "Banderollin leveys"
 
-#: ./content/carouselbanner.py:40
+#: ./content/carouselbanner.py:51
 msgid "Body"
 msgstr "Sisältöteksti"
 
@@ -45,19 +45,15 @@ msgstr "Sisältöteksti"
 msgid "Carousel"
 msgstr "Banderolli"
 
-#: ./browser/folder.py:107
+#: ./browser/folder.py:113
 msgid "Carousel Settings"
 msgstr "Banderollikarusellin asetukset"
-
-#: ./browser/settings.pt:16
-msgid "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
-msgstr "Banderollikaruselli on sarja vuorotellen vaihtuvia banderolleja, jotka voivat sisältää kuvan ja tekstiä."
 
 #: ./interfaces.py:85
 msgid "Cross Fade"
 msgstr "Ristiinhäivytys"
 
-#: ./browser/folder.py:96
+#: ./browser/folder.py:102
 msgid "Display"
 msgstr "Näyttö"
 
@@ -90,6 +86,18 @@ msgstr "Syötä banderollin leveys pikseleinä. Jos tämä kenttä on tyhjä, ka
 msgid "Image"
 msgstr "Kuva"
 
+#: ./content/carouselbanner.py:42
+msgid "Image URL"
+msgstr ""
+
+#: ./content/carouselbanner.py:40
+msgid "Instead of uploading an image, you may enter the URL of an image hosted on another server."
+msgstr ""
+
+#: ./content/carouselbanner.py:66
+msgid "Link URL"
+msgstr ""
+
 #: ./interfaces.py:107
 msgid "Only display on the default item"
 msgstr "Näytä vain kansion etusivulla"
@@ -102,7 +110,7 @@ msgstr "Näytä karuselli ainoastaan kansion oletusnäkymäksi valitulla sisäll
 msgid "Pager Type"
 msgstr "Sivuvalitsin"
 
-#: ./browser/folder.py:113
+#: ./browser/folder.py:119
 msgid "Save"
 msgstr "Tallenna"
 
@@ -134,15 +142,12 @@ msgstr "Tämä kuva näytetään, kun tämä banderolli on näkyvissä."
 msgid "Title"
 msgstr "Otsikko"
 
-#: ./browser/settings.pt:17
-msgid "To add a banner, use the Add New menu above."
-msgstr "Lisää karuselliin uusia banderolleja yllä olevasta Lisää uusi...-valikosta."
-
+#. Default: "To modify existing banners, ${click-contents}."
 #: ./browser/settings.pt:22
-msgid "To modify existing banners, ${click-contents}."
-msgstr "Muokkaa vanhoja banderolleja klikkaamalla ${click-contents}."
+msgid "To modify existing banners"
+msgstr ""
 
-#: ./browser/folder.py:87
+#: ./browser/folder.py:93
 #: ./interfaces.py:83
 msgid "Transition"
 msgstr "Siirtymät"
@@ -162,6 +167,16 @@ msgstr "Poista tämä valinta, jos haluat piilottaa karusellin väliaikaisesti."
 #: ./interfaces.py:77
 msgid "Unique ID"
 msgstr "Tunniste"
+
+#. Default: "To add a banner, use the Add New menu above."
+#: ./browser/settings.pt:17
+msgid "carousel_actions"
+msgstr ""
+
+#. Default: "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
+#: ./browser/settings.pt:16
+msgid "carousel_settings_introduction"
+msgstr ""
 
 #: ./browser/settings.pt:24
 msgid "click the Contents tab"
