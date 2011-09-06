@@ -40,3 +40,14 @@ def upgrade_11_to_20b1(setup_tool):
     obj_actions = actions.get('object', {})
     if 'carousel' in obj_actions.keys():
         obj_actions['carousel'].title = _(u'Carousel')
+        
+def upgrade_21b3_to_10(setup_tool):
+    """
+    Upgrade action permission settings.
+    """
+    
+    actions = getToolByName(setup_tool, 'portal_actions')
+    carousel = actions.get('object', {}).get('carousel', None)
+    if carousel:
+        if carousel.permissions == ('Manage portal',):
+            carousel.permissions = ('Carousel: Manage Carousel',)
