@@ -4,6 +4,9 @@ Change history
 2.1 (unreleased)
 ------------------
 
+- Updated i18n helper script to reflect current translations.
+  [yomatters]
+
 - Added Finnish translation.
   [datakurre]
 

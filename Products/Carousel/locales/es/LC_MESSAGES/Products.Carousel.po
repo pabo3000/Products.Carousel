@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Products.Carousel\n"
-"POT-Creation-Date: 2011-09-06 14:19+0000\n"
+"POT-Creation-Date: 2011-09-06 14:27+0000\n"
 "PO-Revision-Date: 2010-03-02 19:05+0000\n"
 "Last-Translator: Noe Nieto <noe@iservices.com.mx>\n"
 "Language-Team: Español <desarrollo@iservices.com.mx>\n"

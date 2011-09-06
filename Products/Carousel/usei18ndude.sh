@@ -33,8 +33,8 @@ echo "Syncing all translations for domain plone."
 
 touch i18n/$DOMAIN-$PLONE.pot
 $I18NDUDE rebuild-pot --pot i18n/$DOMAIN-$PLONE.pot --create $PLONE ./
-#For Spanish
-$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-es.po
 
-#For Português
-$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-pt-br.po
+$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-da.po
+$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-es.po
+$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-fi.po
+$I18NDUDE sync --pot i18n/$DOMAIN-$PLONE.pot i18n/$DOMAIN-$PLONE-nl.po

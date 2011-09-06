@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-05-20 11:46+0000\n"
+"POT-Creation-Date: 2011-09-06 14:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Jean-Paul Ladage <j.ladage@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Language-Code: nl\n"
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"x-is-fallback-for: nl-be\n"
 "Domain: plone\n"
+"x-is-fallback-for: nl-be\n"
 
 #: ./profiles/default/types/Carousel_Banner.xml
 msgid "A carousel banner which may include an image, text, and/or link."
@@ -155,14 +155,6 @@ msgstr "Deze afbeelding zal getoond woren als deze banner actief is."
 #: ./interfaces.py:46
 msgid "Title"
 msgstr "Titel"
-
-#: ./browser/settings.pt:17
-msgid "To add a banner, use the Add New menu above."
-msgstr "Om een banner toe te voegen, gebruikt u het 'Nieuw item toevoegen' menu hierboven."
-
-#: ./browser/settings.pt:22
-msgid "To modify existing banners, ${click-contents}."
-msgstr "Om bestaande bannners te wijzigen, ${click-contents}"
 
 #: ./browser/folder.py:93
 #: ./interfaces.py:83
