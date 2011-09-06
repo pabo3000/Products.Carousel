@@ -1,8 +1,8 @@
 Change history
 ==============
 
-2.1 (unreleased)
-------------------
+2.1 (2011-09-06)
+----------------
 
 - Updated i18n helper script to reflect current translations.
   [yomatters]
