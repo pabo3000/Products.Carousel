@@ -3,3 +3,4 @@ Contributors
 
 * David Glick [davisagli], Groundwire, Author
 * Matt Yoder [yomatters], Groundwire
+* Noe Nieto [tzicatl], NNieto CS, Spanish translations
