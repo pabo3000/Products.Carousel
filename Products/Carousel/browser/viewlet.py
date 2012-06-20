@@ -6,6 +6,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from Products.Carousel.config import CAROUSEL_ID
 from Products.Carousel.interfaces import ICarousel
 
+
 class CarouselViewlet(ViewletBase):
     __name__ = 'Products.Carousel.viewlet'
     
@@ -51,10 +52,17 @@ class CarouselViewlet(ViewletBase):
         
         if not settings.enabled:
             return
-            
-        if settings.default_page_only and not context_state.is_default_page():
-            return
-            
+
+        if not context_state.is_default_page():
+            if settings.default_page_only:
+                if folder != self.context:
+                    return
+                elif self.context.defaultView() != context_state.view_template_id():
+                    return
+            elif folder == self.context:
+                    if not context_state.is_view_template():
+                        return
+
         banners = carousel.getBanners()
         if not banners:
             return
