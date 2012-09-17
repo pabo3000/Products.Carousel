@@ -5,22 +5,22 @@ Carousel is a tool for featuring a rotating set of banner images in any section
 of your Plone site.  Features:
 
  * Different sets of banners can be used in different sections of the site.
- 
+
  * Banners can link to another page in the site, or an external URL.
- 
+
  * Carousel provides options to customize the appearance of the banner as well
    as the length and type of transition.
-   
+
  * An optional pager provides navigation among the banners.
- 
- * Transition effects are implemented using the jQuery javascript library which 
+
+ * Transition effects are implemented using the jQuery javascript library which
    is included with Plone, so they are pretty lightweight.
- 
+
  * Banners do not rotate while the mouse cursor is hovering over the Carousel.
- 
+
  * Banner and pager templates can be registered to customize the appearance of
    the Carousel.
-   
+
  * Carousel implements jQuery events, allowing for integration with custom
    javascripts.
 
@@ -146,21 +146,17 @@ Non-structural folder: put the carousel in the containing folder::
 
 Collection, not default item: put the carousel in the collection itself::
 
-  >>> self.portal.invokeFactory('Topic', 'topic')
-  'topic'
-  >>> browser.open('http://nohost/plone/topic')
-  >>> browser.getLink('Carousel').click()
-  >>> browser.url
-  'http://nohost/plone/topic/carousel/@@edit-carousel'
-
-Collection, as default item: put the carousel in the containing folder::
-
-  >>> self.portal.default_page = 'topic'
-  >>> browser.open('http://nohost/plone/topic')
+  >>> try:
+  ...     self.portal.invokeFactory('Topic', 'collection')
+  ...     self.portal.default_page = 'collection'
+  ... except:
+  ...     self.portal.invokeFactory('Collection', 'collection')
+  'collection'
+  >>> browser.open('http://nohost/plone/collection')
   >>> browser.getLink('Carousel').click()
   >>> browser.url
   'http://nohost/plone/carousel/@@edit-carousel'
-  
+
 Customizing Carousel
 ====================
 
@@ -171,11 +167,11 @@ ZCML directives. To begin, define the Carousel XML namespace in your product's
 configure.zcml::
 
     xmlns:carousel="http://namespaces.plone.org/carousel"
-    
+
 Then load the ZCML for Carousel::
 
     <include package="Products.Carousel" />
-    
+
 Finally, register your templates::
 
     <carousel:banner
@@ -183,13 +179,13 @@ Finally, register your templates::
    	  template="banner-example.pt"
       title="Default"
    	  />
-   	  
+
    	<carousel:pager
       name="pager-classic"
       template="templates/pager-classic.pt"
       title="Title and Text"
       />
-      
+
 Both the banner and pager directives can also accept a layer attribute to
 restrict the availability of the template to a particular browser layer.
 
@@ -213,8 +209,8 @@ afterAnimate
 beforeAnimate
     Triggered immediately before animation begins. It passes as parameters the
     Carousel object, the index of the current banner and the index of the
-    banner that will be active at the end of the animation.    
-    
+    banner that will be active at the end of the animation.
+
 pause
     Triggered when animation is paused, such as when the user mouses over
     the Carousel. It passes as its parameter the Carousel object.
@@ -222,7 +218,7 @@ pause
 play
     Triggered when animation begins or resumes. It passes as its parameter the
     Carousel object.
-    
+
 The Carousel object, which is passed as the first optional parameter to event
 handlers, is a Javascript object that encapsulates the current state of the
 Carousel. See carousel.js for details of the Carousel object.
@@ -231,7 +227,7 @@ To bind a callback to one of the Carousel events, select the Carousel container
 element and call the jQuery bind method on it::
 
     (function ($) {
-        $('.carousel').bind('afterAnimate', 
+        $('.carousel').bind('afterAnimate',
             function (event, carousel, old_index, new_index) {
             console.log(carousel);
             console.log(old_index);
