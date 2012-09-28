@@ -11,6 +11,7 @@ Change history
 - Don't display ``<img alt="">`` text on the carousel images as it leads to confusing
   with partially load carousel images [miohtama]
 
+- Added checkbox to enable lazy loading carousel images. [kroman0]
 
 
 2.1 (2011-09-06)
