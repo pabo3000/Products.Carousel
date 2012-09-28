@@ -6,6 +6,13 @@ Change history
 
 - Browser view support for showing and hiding carousel viewlet added. [taito]
 
+- Lazily load carousel images [miohtama]
+
+- Don't display ``<img alt="">`` text on the carousel images as it leads to confusing
+  with partially load carousel images [miohtama]
+
+
+
 2.1 (2011-09-06)
 ----------------
 
@@ -96,8 +103,8 @@ Change history
 
 - Added an optional pager for navigation among banners.
   [yomatters]
-  
-- Replaced description field on Carousel banners with a rich-text body field.   
+
+- Replaced description field on Carousel banners with a rich-text body field.
   [yomatters]
 
 - Remove the browser layer to help with use in Plone 2.5.

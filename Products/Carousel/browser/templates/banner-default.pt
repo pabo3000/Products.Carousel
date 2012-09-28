@@ -1,4 +1,7 @@
-<metal:banners use-macro="context/@@banner-base/macros/banners">
+<metal:banners use-macro="context/@@banner-base/macros/banners"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal">
+
     <metal:banner fill-slot="banner_body">
         <tal:banner tal:define="link_url banner/getRemoteUrl;
                 has_link_url python:link_url and not link_url == 'http://';
@@ -12,15 +15,22 @@
                 class="carousel-image">
                 <span tal:omit-tag="has_link_url"
                     class="carousel-image">
-                    <img tal:condition="not:has_image_url" 
-                        tal:replace="structure python:banner.tag()"/>
+
+                    <tal:comment replace="nothing">
+                        <!-- We give image source in special data-lazy-load-src attribute.
+                             Javascript is responsible for reading this attribute and triggering the actual image load.
+                        -->
+                    </tal:comment>
+
+                    <img tal:condition="not:has_image_url"
+                        tal:attributes="data-lazy-load-src image/absolute_url; width image/width; height image/height"/>
+
                     <img tal:condition="has_image_url"
-                        tal:attributes="src image_url;
-                            alt banner/Title;"
+                        tal:attributes="data-lazy-load-src image_url;"
                         src="" />
                 </span>
             </a>
-            <div tal:define="text banner/getText|nothing;" 
+            <div tal:define="text banner/getText|nothing;"
                 tal:condition="python:'title' in elements or ('text' in elements and text)"
                 class="carousel-text">
                 <a tal:condition="python:'title' in elements"
