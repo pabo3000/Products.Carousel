@@ -57,11 +57,19 @@
       var self = this;
       var carousel = target.parents(".carousel");
 
+      function retry() {
+        self.loadLazyImages(index, callback);
+      }
+
       // http://stackoverflow.com/a/7311776/315168
       if(!carousel.is(":visible")) {
         // Carousel element is hidden in DOM by display: none
         // - do nothing
         //console.log("Carousel was not visible - aborting");
+
+        // We must keep polling as the carousel might have stopped
+        // because of the user switching tabs
+        setTimeout(retry, 500);
         return;
       }
 
