@@ -110,7 +110,14 @@ class ICarouselSettings(Interface):
             ' the folder.'),
         default=True,
     )
-    
+
+    lazyload = schema.Bool(
+        title=_(u'Enabled lazily load carousel images'),
+        description=_(u'Check this box to conserve the user and the server'
+            ' bandwidth if the full carousel cycle is not shown.'),
+        default=False,
+    )
+
 class ICarouselSettingsView(Interface):
     """
     Marker interface for the view that displays the Carousel settings form.

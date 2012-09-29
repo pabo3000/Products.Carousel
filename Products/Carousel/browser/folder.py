@@ -68,6 +68,7 @@ class CarouselSettings(Persistent):
     transition_speed = 0.5
     transition_delay = 8.0
     default_page_only = True
+    lazyload = False
         
     def __init__(self):
         self.element_id = u'carousel-%s' % hash(time())
@@ -82,8 +83,9 @@ class AppearanceGroup(group.Group):
     label = _(u'Appearance')
     fields = field.Fields(ICarouselSettings).select(
         'banner_template', 'banner_elements', 'width', 'height',
-        'pager_template', 'element_id')
+        'pager_template', 'element_id', 'lazyload')
     fields['banner_elements'].widgetFactory = CheckBoxFieldWidget
+    fields['lazyload'].widgetFactory = SingleCheckBoxFieldWidget
 
 class TransitionGroup(group.Group):
     """
