@@ -13,6 +13,7 @@ Change history
 
 - Added checkbox to enable lazy loading carousel images. [kroman0]
 
+- A checkbox for randomizing the order of shown pictures [miohtama]
 
 2.1 (2011-09-06)
 ----------------
