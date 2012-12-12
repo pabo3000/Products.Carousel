@@ -1,7 +1,7 @@
 Change history
 ==============
 
-2.2 (2012-XX-XX)
+2.2 (2012-12-12)
 ----------------
 
 - Browser view support for showing and hiding carousel viewlet added. [taito]
