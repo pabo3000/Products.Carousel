@@ -1,3 +1,6 @@
+.. contents :: :local:
+
+
 Introduction
 ============
 
@@ -24,8 +27,10 @@ of your Plone site.  Features:
  * Carousel implements jQuery events, allowing for integration with custom
    javascripts.
 
- * Carousel images are lazily loaded, to conserve the user and the server bandwidth
+ * Carousel images can be lazily loaded, to conserve the user and the server bandwidth
    if the full carousel cycle is not shown
+
+ * Carousel images can be made to appear in random order
 
 Compatibility
 =============
