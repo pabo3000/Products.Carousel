@@ -21,6 +21,9 @@ Change history
 
 - A checkbox for randomizing the order of shown pictures [miohtama]
 
+- Added Plone 4.3 compatibility [davilima6]
+
+
 2.1 (2011-09-06)
 ----------------
 
