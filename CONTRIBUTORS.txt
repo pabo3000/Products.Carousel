@@ -5,3 +5,4 @@ Contributors
 * Matt Yoder [yomatters], Groundwire
 * Noe Nieto [tzicatl], NNieto CS, Spanish translations
 * Taito Horiuchi [taito]
+* Mikko Ohtamaa [miohtama]

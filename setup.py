@@ -12,7 +12,7 @@ def read(*rnames):
 
 
 long_description = (
-    read('Products', 'Carousel', 'README.txt')
+    read('README.rst')
     + '\n' +
     read('CHANGES.txt')
     + '\n' +
