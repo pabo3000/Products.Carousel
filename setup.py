@@ -24,7 +24,7 @@ tests_require=['zope.testing']
 
 setup(
     name='Products.Carousel',
-    version='2.2.1',
+    version='2.2.2.dev0',
     description="Carousel allows you to add user-configurable rotating banners to any section of a Plone site.",
     long_description=long_description,
     # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
