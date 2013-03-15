@@ -131,7 +131,7 @@
         carousel.nextBanner();
       }, carousel.opts.delay);
       carousel.triggerEvent('play');
-      this.loadLazyImages(0);
+      carousel.loadLazyImages(0);
     };
 
     this.pause = function () {
