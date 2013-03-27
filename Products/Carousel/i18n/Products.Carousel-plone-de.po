@@ -29,11 +29,11 @@ msgstr "Aussehen"
 
 #: interfaces.py:41
 msgid "Banner Elements"
-msgstr "Bestandteile des Banners"
+msgstr "Bestandteile der Banner"
 
 #: interfaces.py:63
 msgid "Banner Height"
-msgstr "Höhe des Banners"
+msgstr "Höhe der Banner"
 
 #: interfaces.py:34
 msgid "Banner Type"
@@ -41,7 +41,7 @@ msgstr "Banner-Variante"
 
 #: interfaces.py:56
 msgid "Banner Width"
-msgstr "Breite des Banners"
+msgstr "Breite der Banner"
 
 #: content/carouselbanner.py:51
 msgid "Body"
@@ -77,7 +77,7 @@ msgstr "Geben Sie eine eindeutige Bezeichnung für den Carousel-Ordner ein. Dann
 
 #: interfaces.py:64
 msgid "Enter the height of the banner in pixels. If you leave this field blank, Carousel will use the height of the first banner."
-msgstr "Geben Sie die Höhe des Banners in Pixel ein. Wenn Sie keine Angabe machen, wird die Höhe des ersten Banners genommen."
+msgstr "Geben Sie die Höhe der Banner in Pixel ein. Wenn Sie keine Angabe machen, wird die Höhe des ersten Banners genommen.
 
 #: interfaces.py:100
 msgid "Enter the number of seconds that Carousel should pause between banners."
@@ -89,7 +89,7 @@ msgstr "Geben sie die Übergangszeit zwischen zwei Bannern in Sekunden ein."
 
 #: interfaces.py:57
 msgid "Enter the width of the banner in pixels. If you leave this field blank, Carousel will use the width of the first banner."
-msgstr "Geben Sie die Breite des Banners in Pixel ein. Wenn Sie keine Angabe machen, wird die Breite des ersten Banners genommen."
+msgstr "Geben Sie die Breite der Banner in Pixel ein. Wenn Sie keine Angabe machen, wird die Breite des ersten Banners genommen."
 
 #: content/carouselbanner.py:31 interfaces.py:48
 msgid "Image"
@@ -129,7 +129,7 @@ msgstr "Speichern"
 
 #: interfaces.py:42
 msgid "Select the elements that should be visible on the banner. Note that custom banner types may not provide all elements."
-msgstr "Markieren Sie die Elemente, die auf dem Banner sichtbar sein sollen. Evenntuell stehen bei bestimmten Bannertypen nicht alle Elemente zur Verfügung."
+msgstr "Markieren Sie die Elemente, die auf den Bannern sichtbar sein sollen. Eventuell stehen bei bestimmten Banner-Varianten nicht alle Elemente zur Verfügung."
 
 #: interfaces.py:86
 msgid "Slide"

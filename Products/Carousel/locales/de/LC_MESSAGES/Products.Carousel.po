@@ -26,11 +26,11 @@ msgstr "Aussehen"
 
 #: ./../interfaces.py:43
 msgid "Banner Elements"
-msgstr "Bestandteile des Banners"
+msgstr "Bestandteile der Banner"
 
 #: ./../interfaces.py:65
 msgid "Banner Height"
-msgstr "Höhe des Banners"
+msgstr "Höhe der Banner"
 
 #: ./../interfaces.py:36
 msgid "Banner Type"
@@ -38,7 +38,7 @@ msgstr "Banner-Variante"
 
 #: ./../interfaces.py:58
 msgid "Banner Width"
-msgstr "Banner Breite"
+msgstr "Breite der Banner"
 
 #: ./../content/carouselbanner.py:51
 msgid "Body"
@@ -82,7 +82,7 @@ msgstr "Geben Sie eine eindeutige Bezeichnung für den Carousel-Ordner ein. Dann
 
 #: ./../interfaces.py:66
 msgid "Enter the height of the banner in pixels. If you leave this field blank, Carousel will use the height of the first banner."
-msgstr "Geben Sie die Höhe des Banners in Pixel ein. Wenn Sie keine Angabe machen, wird die Höhe des ersten Banners genommen."
+msgstr "Geben Sie die Höhe der Banner in Pixel ein. Wenn Sie keine Angabe machen, wird die Höhe des ersten Banners genommen."
 
 #: ./../interfaces.py:102
 msgid "Enter the number of seconds that Carousel should pause between banners."
@@ -94,7 +94,7 @@ msgstr "Geben sie die Wechselgeschwindigkeit der Banner in Sekunden ein."
 
 #: ./../interfaces.py:59
 msgid "Enter the width of the banner in pixels. If you leave this field blank, Carousel will use the width of the first banner."
-msgstr "Geben Sie die Breite des Banners in Pixel ein. Wenn Sie keine Angabe machen, wird die Breite des ersten Banners genommen."
+msgstr "Geben Sie die Breite der Banner in Pixel ein. Wenn Sie keine Angabe machen, wird die Breite des ersten Banners genommen."
 
 #: ./../content/carouselbanner.py:31
 #: ./../interfaces.py:50
@@ -115,7 +115,7 @@ msgstr "URL des Verweises/Links"
 
 #: ./../interfaces.py:109
 msgid "Only display on the default item"
-msgstr "Carousel nur auf der Standardseiite anzeigen"
+msgstr "Carousel nur auf der Standardseite anzeigen"
 
 #: ./../interfaces.py:110
 msgid "Only display the Carousel on the default item of this folder. Otherwise, the Carousel appears on every item in the folder."
@@ -123,7 +123,7 @@ msgstr "Carousel nur auf der Standardseite dieses Ordners anzeigen. Sonst wird d
 
 #: ./../interfaces.py:72
 msgid "Pager Type"
-msgstr "Banner Steuerung"
+msgstr "Banner-Steuerung"
 
 #: ./../interfaces.py:117
 msgid "Random order"
@@ -164,7 +164,7 @@ msgstr "Titel"
 #. Default: "To modify existing banners, ${click-contents}."
 #: ./../browser/settings.pt:22
 msgid "To modify existing banners"
-msgstr "Um vorhandene Banner zu modifizieren"
+msgstr "Um vorhandene Banner zu modifizieren, ${click-contents}. "
 
 #: ./../browser/folder.py:109
 #: ./../interfaces.py:85
@@ -190,12 +190,12 @@ msgstr "Eindeutige ID"
 #. Default: "To add a banner, use the Add New menu above."
 #: ./../browser/settings.pt:17
 msgid "carousel_actions"
-msgstr ""
+msgstr "Für ein neues Banner wählen Sie oben im Menü \"Hinzufügen...\". "
 
 #. Default: "Carousel allows you to create a rotating display of banners that contain images and text. ${carousel-actions}"
 #: ./../browser/settings.pt:16
 msgid "carousel_settings_introduction"
-msgstr "Mit Carousel können sie durchlaufende Banner erzeugen, die Bilder und Texte enthalten."
+msgstr "Mit Carousel können Sie wechselnde Banner anzeigen lassen, die Bilder und Text darstellen können. ${carousel-actions}."
 
 #: ./../browser/settings.pt:24
 msgid "click the Contents tab"
