@@ -11,7 +11,7 @@
         tal:content="structure pager">
         Pager
     </tal:pager>
-    <script type="text/javascript" charset="utf-8" tal:content="string:
+    <script type="text/javascript" tal:content="string:
         (function ($$) {
             $$('#${view/element_id}').ploneCarousel({
                 height: ${view/height},
