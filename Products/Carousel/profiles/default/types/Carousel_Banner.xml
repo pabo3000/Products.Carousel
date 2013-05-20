@@ -7,7 +7,7 @@
   <property name="description"
     i18n:translate="">A carousel banner which may include an image, text, and/or link.</property>
   <property name="content_meta_type">Carousel Banner</property>
-  <property name="content_icon">document_icon.gif</property>
+  <property name="content_icon">document_icon.png</property>
   <property name="product">Carousel</property>
   <property name="factory">addCarouselBanner</property>
   <property name="immediate_view">atct_edit</property>
