@@ -9,8 +9,9 @@ Change history
 
 - Updated icon for content type: Carousel Banner. [taito]
 
-- Restrict types in banners folder via ISelectableConstrainTypes adapter, for
-  compatibility with plone.app.contenttypes Folders.
+- When creating a banners folder, set exclude_from_nav and restrict types via
+  ISelectableConstrainTypes adapter, for compatibility with
+  plone.app.contenttypes (Dexterity) Folders.
   [danjacka]
 
 
