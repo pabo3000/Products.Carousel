@@ -1,6 +1,7 @@
 from zope.interface import alsoProvides
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import ISelectableConstrainTypes
 from Products.Carousel.interfaces import ICarouselFolder
 from Products.Carousel.utils import addPermissionsForRole
 from Products.Carousel.config import CAROUSEL_ID
@@ -24,9 +25,10 @@ class CarouselManager(BrowserView):
             addPermissionsForRole(carousel, 'Site Administrator', ('Carousel: Add Carousel Banner',))
             
             # make sure *only* Carousel banners are addable
-            carousel.setConstrainTypesMode(1)
-            carousel.setLocallyAllowedTypes(['Carousel Banner'])
-            carousel.setImmediatelyAddableTypes(['Carousel Banner'])
+            aspect = ISelectableConstrainTypes(carousel)
+            aspect.setConstrainTypesMode(1)
+            aspect.setLocallyAllowedTypes(['Carousel Banner'])
+            aspect.setImmediatelyAddableTypes(['Carousel Banner'])
 
         self.request.RESPONSE.redirect(
             carousel.absolute_url() + '/@@edit-carousel'

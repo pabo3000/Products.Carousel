@@ -6,7 +6,12 @@ Change history
 
 - Added German translation.
   [pabo3000]
+
 - Updated icon for content type: Carousel Banner. [taito]
+
+- Restrict types in banners folder via ISelectableConstrainTypes adapter, for
+  compatibility with plone.app.contenttypes Folders.
+  [danjacka]
 
 
 2.2.1 (2013-03-15)
