@@ -1,3 +1,4 @@
+from Acquisition import aq_base
 from zope.interface import alsoProvides
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -18,11 +19,15 @@ class CarouselManager(BrowserView):
                             type_name='Folder',
                             container=self.context,
                             id='carousel',
-                            title='Carousel Banners',
-                            excludeFromNav=True, # for Archetypes Folders
-                            exclude_from_nav=True, # for Dexterity Folders
+                            title='Carousel Banners'
                         )
             carousel = getattr(self.context, newid)
+
+            # exclude the (Archetypes or Dexterity) folder from navigation
+            if hasattr(aq_base(carousel), 'setExcludeFromNav'):
+                carousel.setExcludeFromNav(True)
+            elif hasattr(aq_base(carousel), 'exclude_from_nav'):
+                carousel.exclude_from_nav = True
 
             # mark the new folder as a Carousel folder
             alsoProvides(carousel, ICarouselFolder)
@@ -38,6 +43,8 @@ class CarouselManager(BrowserView):
             aspect.setConstrainTypesMode(1)
             aspect.setLocallyAllowedTypes(['Carousel Banner'])
             aspect.setImmediatelyAddableTypes(['Carousel Banner'])
+
+            carousel.reindexObject()
 
         self.request.RESPONSE.redirect(
             carousel.absolute_url() + '/@@edit-carousel'
