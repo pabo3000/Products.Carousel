@@ -7,3 +7,4 @@ Contributors
 * Taito Horiuchi [taito]
 * Mikko Ohtamaa [miohtama]
 * Roman Kozlovskyi [kroman0]
+* Gustavo Lepri [lepri], Brazilian Portuguese translation

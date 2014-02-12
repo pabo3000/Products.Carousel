@@ -3,6 +3,8 @@ Change history
 
 2.2.2 (unreleased)
 ------------------
+- Added Brazilian Portuguese translation.
+  [lepri]
 
 - Added German translation.
   [pabo3000]
