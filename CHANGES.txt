@@ -3,6 +3,11 @@ Change history
 
 2.2.2 (unreleased)
 ------------------
+
+plone.com branch: add fields to content and functionality for plone.com
+theme functionality.
+[smcmahon]
+
 - Added Brazilian Portuguese translation.
   [lepri]
 
