@@ -40,3 +40,131 @@
 .carousel-settings-introduction {
     margin-bottom: 1em;
 }
+
+/* overlay-related image styling */
+
+.carousel {
+    margin: 0;
+    position: relative;
+}
+div.carousel-banners {
+    overflow: hidden;
+    width: 100% !important;
+}
+.carousel-banner {
+    width: 100% !important;
+}
+.carousel-banner .carousel-image img {
+    bottom: 0;
+    left: 50%;
+    margin: auto auto auto -943px;
+    max-width: none !important;
+    position: absolute;
+    top: 0;
+    width: auto !important;
+}
+.carousel-text {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: 0;
+    color: #008000;
+    height: auto;
+    left: 0;
+    margin: auto 2%;
+    padding: 0 52px;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    width: auto;
+}
+.carousel-text.center {
+    text-align: center;
+}
+.carousel-text.right {
+    text-align: right;
+}
+.carousel-overlay-image.center {
+    display: block;
+    height: 40%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.carousel-overlay-image.center img {
+    bottom: 10%;
+    height: auto;
+    left: 0;
+    margin: auto;
+    max-height: 80%;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: auto;
+}
+.carousel-overlay-image.right {
+    display: block;
+    float: right;
+    height: 100%;
+    position: relative;
+    width: 50%;
+}
+.carousel-overlay-image.right img {
+    bottom: 10%;
+    height: auto;
+    left: 0;
+    margin: auto;
+    max-height: 80%;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: auto;
+}
+.carousel-text a {
+    color: #FFFFFF !important;
+}
+.carousel-text .carousel-title {
+    color: #FFFFFF;
+    display: block;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    line-height: 1.4em;
+    margin-bottom: 10px;
+}
+.carousel-text .carousel-description {
+    color: #00A1DF;
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.carousel-text .carousel-body {
+    display: block;
+    font-size: 20px;
+    line-height: 1.4em;
+    margin-bottom: 15px;
+}
+.carousel-text .carousel-body h2 {
+    color: #FFFFFF;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    line-height: 1.4em;
+    margin-bottom: 0;
+}
+.carousel-readmore {
+    border: 1px solid #f00;
+    color: #0f0;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    letter-spacing: -0.05em;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 178px;
+}
+.carousel-readmore:hover {
+    color: #00f !important;
+}

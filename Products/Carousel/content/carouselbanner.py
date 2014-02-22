@@ -50,7 +50,7 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
         required=False,
         searchable=False,
         default = "right",
-        vocabulary=[('left', _(u'Left')), ('right', _(u'Right'))],
+        vocabulary=[('left', _(u'Left')), ('center', _(u'Center')), ('right', _(u'Right'))],
         widget = atapi.SelectionWidget(
             label = _(u'Overlay Image Alignment'),
             )

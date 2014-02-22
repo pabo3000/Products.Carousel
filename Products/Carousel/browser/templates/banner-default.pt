@@ -41,9 +41,10 @@
                     </tal:lazy>
                 </span>
             </a>
-            <div class="carousel-text left"
+            <div class="carousel-text"
                  tal:define="smallimage banner/getSmallimage | nothing;
                              text banner/getText|nothing;
+                             readmore banner/getReadMoreText | nothing;
                              ">
                 <span class="carousel-overlay-image right"
                       tal:condition="smallimage"
@@ -67,7 +68,8 @@
                     </div>
                 </span>
                 <a class="carousel-readmore"
-                   tal:content="banner/getReadMoreText"
+                   tal:content="readmore"
+                   tal:condition="readmore"
                    tal:attributes="href link_url;">READ MORE</a>
             </div>
             <a tal:attributes="href link_url;"
