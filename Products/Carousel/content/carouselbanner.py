@@ -31,7 +31,31 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
             label= _(u'Image'),
             show_content_type = False)
         ),
-        
+
+    atapi.ImageField('smallimage',
+        required = False,
+        storage = atapi.AnnotationStorage(),
+        languageIndependent = True,
+        max_size = zconf.ATNewsItem.max_image_dimension,
+        sizes= { },
+        validators = (('isNonEmptyFile', V_REQUIRED),
+                      ('checkNewsImageMaxSize', V_REQUIRED)),
+        widget = atapi.ImageWidget(
+            description = _(u'This image will be presented beside the text.'),
+            label= _(u'Small Overlay Image'),
+            show_content_type = False)
+        ),
+
+    atapi.StringField('imageAlignment',
+        required=False,
+        searchable=False,
+        default = "right",
+        vocabulary=[('left', _(u'Left')), ('right', _(u'Right'))],
+        widget = atapi.SelectionWidget(
+            label = _(u'Overlay Image Alignment'),
+            )
+        ),
+
     atapi.StringField('imageUrl',
         required=False,
         searchable=False,
@@ -42,7 +66,7 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
             label = _(u'Image URL'),
             maxlength = '511')
         ),
-        
+
     atapi.TextField('text',
         required=False,
         validators = ('isTidyHtmlWithCleanup',),
@@ -52,6 +76,16 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
         ),
     ),
 
+    atapi.StringField('readMoreText',
+        required=False,
+        searchable=False,
+        default = "",
+        widget = atapi.StringWidget(
+            description = _(u'Text to display in an optional button.'),
+            label = _(u'Read More Text'),
+            maxlength = '511')
+        ),
+
 ))
 
 # Set storage on fields copied from ATContentTypeSchema, making sure
@@ -60,7 +94,7 @@ CarouselBannerSchema = link.ATLinkSchema.copy() + atapi.Schema((
 CarouselBannerSchema['title'].storage = atapi.AnnotationStorage()
 CarouselBannerSchema['description'].storage = atapi.AnnotationStorage()
 CarouselBannerSchema['description'].widget.visible = {
-    'view': 'hidden', 
+    'view': 'hidden',
     'edit': 'hidden'
 }
 CarouselBannerSchema['remoteUrl'].widget.label = _(u'Link URL')
@@ -77,7 +111,7 @@ class CarouselBanner(link.ATLink):
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
-    
+
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
 
     def tag(self, **kw):
@@ -101,8 +135,8 @@ class CarouselBanner(link.ATLink):
             if image is not None and not isinstance(image, basestring):
                 # image might be None or '' for empty images
                 return image
-    
+
         return super(CarouselBanner, self).__bobo_traverse__(REQUEST, name)
-    
+
 
 atapi.registerType(CarouselBanner, PROJECTNAME)

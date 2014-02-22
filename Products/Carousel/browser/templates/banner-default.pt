@@ -41,23 +41,34 @@
                     </tal:lazy>
                 </span>
             </a>
-            <div tal:define="text banner/getText|nothing;"
-                tal:condition="python:'title' in elements or ('text' in elements and text)"
-                class="carousel-text">
-                <a tal:condition="python:'title' in elements"
-                    tal:omit-tag="not:has_link_url"
-                    tal:attributes="href link_url;"
-                    class="carousel-title">
-                    <span tal:omit-tag="has_link_url"
-                        class="carousel-title">
-                        <span tal:replace="banner/Title">Banner Title</span>
-                    </span>
-                </a>
-                <div tal:condition="python:text and 'text' in elements"
-                    tal:content="structure text"
+            <div class="carousel-text left"
+                 tal:define="smallimage banner/getSmallimage | nothing;
+                             text banner/getText|nothing;
+                             ">
+                <span class="carousel-overlay-image right"
+                      tal:condition="smallimage"
+                      tal:attributes="class string:carousel-overlay-image ${banner/getImageAlignment}"><img tal:replace="structure smallimage" /></span>
+                <span
+                    tal:condition="python:'title' in elements or ('text' in elements and text)"
                     class="carousel-body">
-                    Body text
-                </div>
+                    <a tal:condition="python:'title' in elements"
+                        tal:omit-tag="not:has_link_url"
+                        tal:attributes="href link_url;"
+                        class="carousel-title">
+                        <span tal:omit-tag="has_link_url"
+                            class="carousel-title">
+                            <span tal:replace="banner/Title">Banner Title</span>
+                        </span>
+                    </a>
+                    <div tal:condition="python:text and 'text' in elements"
+                        tal:content="structure text"
+                        class="carousel-body">
+                        Body text
+                    </div>
+                </span>
+                <a class="carousel-readmore"
+                   tal:content="banner/getReadMoreText"
+                   tal:attributes="href link_url;">READ MORE</a>
             </div>
             <a tal:attributes="href link_url;"
                 tal:omit-tag="not:has_link_url"
