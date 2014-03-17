@@ -51,7 +51,7 @@
                       tal:attributes="class string:carousel-overlay-image ${banner/getImageAlignment}"><img tal:replace="structure smallimage" /></span>
                 <span
                     tal:condition="python:'title' in elements or ('text' in elements and text)"
-                    class="carousel-body">
+                    tal:attributes="class string:carousel-body image-${banner/getImageAlignment}">
                     <a tal:condition="python:'title' in elements"
                         tal:omit-tag="not:has_link_url"
                         tal:attributes="href link_url;"
