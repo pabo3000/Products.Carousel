@@ -37,6 +37,13 @@ class CarouselManager(BrowserView):
                                   ('Carousel: Add Carousel Banner',))
             addPermissionsForRole(carousel, 'Site Administrator',
                                   ('Carousel: Add Carousel Banner',))
+            addPermissionsForRole(carousel, 'Owner',
+                                  ('Carousel: Add Carousel Banner',))
+            addPermissionsForRole(carousel, 'Contributor',
+                                  ('Carousel: Add Carousel Banner',))
+            addPermissionsForRole(carousel, 'Editor',
+                                  ('Carousel: Add Carousel Banner',))
+            
 
             # make sure *only* Carousel banners are addable
             aspect = ISelectableConstrainTypes(carousel)
