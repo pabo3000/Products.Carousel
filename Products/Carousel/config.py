@@ -11,5 +11,5 @@ ADD_PERMISSIONS = {
 CAROUSEL_ID = 'carousel'
 
 from Products.CMFCore.permissions import setDefaultRoles
-setDefaultRoles('Carousel: Manage Carousel', ('Manager', 'Site Administrator'))
+setDefaultRoles('Carousel: Manage Carousel', ('Manager', 'Site Administrator', 'Owner', 'Contributor', 'Editor'))
 setDefaultRoles(ADD_PERMISSIONS['Carousel Banner'], ('Manager',))
