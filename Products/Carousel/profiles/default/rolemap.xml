@@ -4,5 +4,11 @@
     <!-- -*- extra stuff goes here -*- -->
     <permission name="Carousel: Add Carousel Banner" acquire="False">
     </permission>
+    <permission name="Carousel: Manage Carousel" acquire="True">
+      <role name="Manager"/>
+      <role name="Owner"/>
+      <role name="Site Administrator"/>
+    </permission>
   </permissions>
 </rolemap>
+
